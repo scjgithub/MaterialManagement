@@ -78,7 +78,7 @@ namespace MaterialManagement
         }
 
         //定义查询数据库字段名称
-        string[] dbFields = { "materialname", "barcode", "categoryone", "categorytwo", "categorythree", "materialname", "specification" };
+        string[] dbFields = { "materialname", "barcode", "categoryone", "categorytwo", "categorythree", "materialname", "specification", "specificationModle" };
         private void btnQuery_Click(object sender, EventArgs e)
         {
             string txt = txtQuery.Text;
@@ -118,7 +118,7 @@ namespace MaterialManagement
                         dgvMaterialList.Rows[index].Cells["barcode"].Value = barcode;
                         dgvMaterialList.Rows[index].Cells["materialname"].Value = dr["materialname"].ToString();
                         dgvMaterialList.Rows[index].Cells["specification"].Value = dr["specification"].ToString();
-                        dgvMaterialList.Rows[index].Cells["specificationModle"].Value = dr["specification"].ToString();
+                        dgvMaterialList.Rows[index].Cells["specificationmodle"].Value = dr["specificationmodle"].ToString();
                         dgvMaterialList.Rows[index].Cells["remainnum"].Value = dr["remainnum"].ToString();
                         dgvMaterialList.Rows[index].Cells["categoryone"].Value = dr["categoryone"].ToString();
                         dgvMaterialList.Rows[index].Cells["categorytwo"].Value = dr["categorytwo"].ToString();

@@ -53,6 +53,7 @@ namespace MaterialManagement
                         dgvMaterialList.Rows[index].Cells["barcode1"].Value = barcode;
                         dgvMaterialList.Rows[index].Cells["materialname1"].Value = dr["materialname"].ToString();
                         dgvMaterialList.Rows[index].Cells["specification1"].Value = dr["specification"].ToString();
+                        dgvMaterialList.Rows[index].Cells["specification1Modle"].Value = dr["specificationmodle"].ToString();
                         dgvMaterialList.Rows[index].Cells["remainnum1"].Value = dr["remainnum"].ToString();
                         dgvMaterialList.Rows[index].Cells["categoryone1"].Value = dr["categoryone"].ToString();
                         dgvMaterialList.Rows[index].Cells["categorytwo1"].Value = dr["categorytwo"].ToString();
@@ -108,6 +109,7 @@ namespace MaterialManagement
             dgvOutList.Rows[index].Cells["barcode"].Value = barcode;
             dgvOutList.Rows[index].Cells["materialname"].Value = dt.Rows[0]["materialname"].ToString();
             dgvOutList.Rows[index].Cells["specification"].Value = dt.Rows[0]["specification"].ToString();
+            dgvOutList.Rows[index].Cells["specificationModle"].Value = dt.Rows[0]["specificationmodle"].ToString();
             dgvOutList.Rows[index].Cells["remainnum"].Value = dt.Rows[0]["remainnum"].ToString();
             dgvOutList.Rows[index].Cells["whereabouts"].Value = txtWhereabouts.Text;
             dgvOutList.Rows[index].Cells["categoryone"].Value = dt.Rows[0]["categoryone"].ToString();
@@ -133,10 +135,11 @@ namespace MaterialManagement
 
                 if (rowAffect == 0)
                 {
-                    queryString = "insert into material (barcode,categoryone,categorytwo,categorythree,materialname,specification,remainnum,note) values('"
+                    queryString = "insert into material (barcode,categoryone,categorytwo,categorythree,materialname,specification,specificationmodle,remainnum,note) values('"
                         + row.Cells["barcode"].Value.ToString() + "','"
                         + row.Cells["materialname"].Value.ToString() + "','"
                         + row.Cells["specification"].Value.ToString() + "','"
+                        + row.Cells["specificationmodle"].Value.ToString() + "','"
                         + row.Cells["remainnum"].Value.ToString() + "','"
                         + row.Cells["categoryone"].Value.ToString() + "','"
                         + row.Cells["categorytwo"].Value.ToString() + "','"
@@ -149,6 +152,7 @@ namespace MaterialManagement
                         + row.Cells["barcode"].Value.ToString() + "','"
                         + row.Cells["materialname"].Value.ToString() + "','"
                         + row.Cells["specification"].Value.ToString() + "','"
+                        + row.Cells["specificationmodle"].Value.ToString() + "','"
                         + "出库','"
                         + row.Cells["InNum"].Value.ToString() + "','"
                         + DateTime.Now.ToString() + "','"

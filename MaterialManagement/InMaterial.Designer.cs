@@ -534,6 +534,7 @@
         private System.Windows.Forms.TextBox txtCategoryThree;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtSpecification;
+        private System.Windows.Forms.TextBox txtSpecificationModle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

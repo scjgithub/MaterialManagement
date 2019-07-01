@@ -51,8 +51,8 @@
             this.btnMaterialList = new System.Windows.Forms.Button();
             this.barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specificationModle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specification = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specificationmodle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remainnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categorytwo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,8 +125,8 @@
             this.dgvMaterialList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.barcode,
             this.materialname,
-            this.specificationModle,
             this.specification,
+            this.specificationmodle,
             this.remainnum,
             this.categoryone,
             this.categorytwo,
@@ -300,17 +300,17 @@
             this.materialname.ReadOnly = true;
             this.materialname.Width = 180;
             // 
-            // specificationModle
-            // 
-            this.specificationModle.HeaderText = "规格类型";
-            this.specificationModle.Name = "specificationModle";
-            this.specificationModle.ReadOnly = true;
-            // 
             // specification
             // 
-            this.specification.HeaderText = "规格名称";
+            this.specification.HeaderText = "规格类型";
             this.specification.Name = "specification";
             this.specification.ReadOnly = true;
+            // 
+            // specificationmodle
+            // 
+            this.specificationmodle.HeaderText = "规格名称";
+            this.specificationmodle.Name = "specificationmodle";
+            this.specificationmodle.ReadOnly = true;
             // 
             // remainnum
             // 
@@ -402,8 +402,8 @@
         private System.Windows.Forms.Button btnMaterialList;
         private System.Windows.Forms.DataGridViewTextBoxColumn barcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn materialname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn specificationModle;
         private System.Windows.Forms.DataGridViewTextBoxColumn specification;
+        private System.Windows.Forms.DataGridViewTextBoxColumn specificationmodle;
         private System.Windows.Forms.DataGridViewTextBoxColumn remainnum;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryone;
         private System.Windows.Forms.DataGridViewTextBoxColumn categorytwo;

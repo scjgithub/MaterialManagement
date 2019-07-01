@@ -18,7 +18,7 @@ namespace MaterialManagement
             InitializeComponent();
         }
 
-        string[] dbFields = { "barcode", "materialname", "specification", "inouttype", "operater" };
+        string[] dbFields = { "barcode", "materialname", "specification", "specificationmodle", "inouttype", "operater" };
         private void btnQuery_Click(object sender, EventArgs e)
         {
             string timeStart = this.dateTimeStart.Value.ToString("yyyy/MM/dd") + " 00:00:00";
@@ -61,11 +61,13 @@ namespace MaterialManagement
                         dgvOutList.Rows[index].Cells[0].Value = dr[0].ToString();
                         dgvOutList.Rows[index].Cells[1].Value = dr[1].ToString();
                         dgvOutList.Rows[index].Cells[2].Value = dr[2].ToString();
-                        dgvOutList.Rows[index].Cells[3].Value = dr[2].ToString();
-                        dgvOutList.Rows[index].Cells[4].Value = dr[4].ToString();
-                        dgvOutList.Rows[index].Cells[5].Value = dr[5].ToString();
-                        dgvOutList.Rows[index].Cells[6].Value = dr[6].ToString();
-                        dgvOutList.Rows[index].Cells[7].Value = dr[7].ToString();
+                        dgvOutList.Rows[index].Cells[3].Value = dr[8].ToString();
+                        dgvOutList.Rows[index].Cells[4].Value = dr[3].ToString();
+                        dgvOutList.Rows[index].Cells[5].Value = dr[4].ToString();
+                        dgvOutList.Rows[index].Cells[6].Value = dr[5].ToString();
+                        dgvOutList.Rows[index].Cells[7].Value = dr[6].ToString();
+                        dgvOutList.Rows[index].Cells[8].Value = dr[7].ToString();
+                        
                         
                     }
                 }

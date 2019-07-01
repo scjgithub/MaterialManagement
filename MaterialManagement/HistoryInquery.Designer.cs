@@ -47,7 +47,7 @@
             this.barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specification = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specificationModle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specificationmodle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inouttype = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inoutnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.operatetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -195,7 +195,7 @@
             this.barcode,
             this.materialname,
             this.specification,
-            this.specificationModle,
+            this.specificationmodle,
             this.inouttype,
             this.inoutnum,
             this.operatetime,
@@ -229,11 +229,11 @@
             this.specification.Name = "specification";
             this.specification.ReadOnly = true;
             // 
-            // specificationModle
+            // specificationmodle
             // 
-            this.specificationModle.HeaderText = "规格名称";
-            this.specificationModle.Name = "specificationModle";
-            this.specificationModle.ReadOnly = true;
+            this.specificationmodle.HeaderText = "规格名称";
+            this.specificationmodle.Name = "specificationmodle";
+            this.specificationmodle.ReadOnly = true;
             // 
             // inouttype
             // 
@@ -309,7 +309,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn barcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn materialname;
         private System.Windows.Forms.DataGridViewTextBoxColumn specification;
-        private System.Windows.Forms.DataGridViewTextBoxColumn specificationModle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn specificationmodle;
         private System.Windows.Forms.DataGridViewTextBoxColumn inouttype;
         private System.Windows.Forms.DataGridViewTextBoxColumn inoutnum;
         private System.Windows.Forms.DataGridViewTextBoxColumn operatetime;

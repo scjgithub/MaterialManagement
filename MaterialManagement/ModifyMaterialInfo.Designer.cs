@@ -31,10 +31,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtCategoryTwo = new System.Windows.Forms.TextBox();
             this.txtRemainNum = new System.Windows.Forms.TextBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.txtCategoryThree = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtSpecification = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,8 +49,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.label101 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +66,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label101);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtMaterialName);
             this.groupBox1.Controls.Add(this.label6);
@@ -78,6 +80,7 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "物料信息";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtCategoryTwo
             // 
@@ -95,6 +98,14 @@
             this.txtRemainNum.Size = new System.Drawing.Size(142, 21);
             this.txtRemainNum.TabIndex = 19;
             this.txtRemainNum.Text = "0";
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrice.Location = new System.Drawing.Point(327, 183);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(142, 21);
+            this.txtPrice.TabIndex = 19;
             // 
             // txtNote
             // 
@@ -128,6 +139,15 @@
             this.txtSpecification.Name = "txtSpecification";
             this.txtSpecification.Size = new System.Drawing.Size(142, 21);
             this.txtSpecification.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(280, 188);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "价格：";
             // 
             // label2
             // 
@@ -236,22 +256,14 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // label1
+            // label101
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(280, 188);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "价格：";
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPrice.Location = new System.Drawing.Point(327, 183);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(142, 21);
-            this.txtPrice.TabIndex = 19;
+            this.label101.AutoSize = true;
+            this.label101.Location = new System.Drawing.Point(40, 185);
+            this.label101.Name = "lab1";
+            this.label101.Size = new System.Drawing.Size(65, 12);
+            this.label101.TabIndex = 11;
+            this.label101.Text = "物料规格：";
             // 
             // ModifyMaterialInfo
             // 
@@ -279,6 +291,7 @@
         private System.Windows.Forms.TextBox txtCategoryThree;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtSpecification;
+        //private System.Windows.Forms.TextBox txtSpecificationmodle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -293,6 +306,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label101;
 
     }
 }

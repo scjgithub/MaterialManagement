@@ -33,6 +33,7 @@ namespace MaterialManagement
             dtRow.Cells["barcode"].Value        = txtBarCode.Text;
             dtRow.Cells["materialname"].Value   = txtMaterialName.Text;
             dtRow.Cells["specification"].Value  = txtSpecification.Text;
+            dtRow.Cells["specificationModle"].Value = txtSpecification.Text;
             dtRow.Cells["remainnum"].Value      = txtRemainNum.Text;
             dtRow.Cells["categoryone"].Value    = txtCategoryOne.Text;
             dtRow.Cells["categorytwo"].Value    = txtCategoryTwo.Text;
@@ -91,6 +92,11 @@ namespace MaterialManagement
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

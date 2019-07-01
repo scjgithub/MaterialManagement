@@ -12,6 +12,7 @@ namespace MaterialManagement
 {
     public partial class InMaterial : Form
     {
+
         public InMaterial()
         {
             InitializeComponent();
@@ -41,6 +42,7 @@ namespace MaterialManagement
                     txtCategoryThree.Text = dr[3].ToString();
                     txtMaterialName.Text = dr[4].ToString();
                     txtSpecification.Text = dr[5].ToString();
+                    txtSpecification.Text = dr[10].ToString();
                     txtNote.Text = dr[8].ToString();
                     txtPrice.Text = dr[9].ToString();
                     if (txtPrice.Text == "")
@@ -86,7 +88,7 @@ namespace MaterialManagement
             dgvInList.Rows[index].Cells["categorythree"].Value = txtCategoryThree.Text;
             dgvInList.Rows[index].Cells["materialname"].Value = txtMaterialName.Text;
             dgvInList.Rows[index].Cells["specification"].Value = txtSpecification.Text;
-            dgvInList.Rows[index].Cells["specificationModle"].Value = txtSpecification.Text;
+            //dgvInList.Rows[index].Cells["specificationModle"].Value = txtSpecificationModle.Text;
             dgvInList.Rows[index].Cells["remainnum"].Value = DataDBInfo.GetRemainNumByBarCode(barcode);
             dgvInList.Rows[index].Cells["InNum"].Value = txtAddNum.Text;
             dgvInList.Rows[index].Cells["note"].Value = txtNote.Text;
@@ -118,7 +120,7 @@ namespace MaterialManagement
 
                 if (rowAffect == 0)
                 {
-                    queryString = "insert into material (barcode,categoryone,categorytwo,categorythree,materialname,specification,remainnum,note) values('"
+                    queryString = "insert into material (barcode,categoryone,categorytwo,categorythree,materialname,specification,specificationmodle,remainnum,note) values('"
                         + row.Cells["barcode"].Value.ToString() + "','"
                         + row.Cells["categoryone"].Value.ToString() + "','"
                         + row.Cells["categorytwo"].Value.ToString() + "','"
@@ -134,7 +136,8 @@ namespace MaterialManagement
                 string historyString = "insert into history Values('"
                         + row.Cells["barcode"].Value.ToString() + "','"
                         + row.Cells["materialname"].Value.ToString() + "','"
-                        + row.Cells["specification"].Value.ToString() + "','"  
+                        + row.Cells["specification"].Value.ToString() + "','"
+                        + row.Cells["specificationmodle"].Value.ToString() + "','"  
                         + "入库','"
                         + row.Cells["InNum"].Value.ToString() + "','"
                         + DateTime.Now.ToString() + "','"
