@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialManagement", "MaterialManagement\MaterialManagement.csproj", "{5166749D-F3D2-43C4-A00F-F1C3FEE297E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostgreDBUtility", "PostgreDBUtility\PostgreDBUtility.csproj", "{F72C69CD-3BBB-4618-BD01-99B9AF3290C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginDataInfo", "LoginDataInfo\LoginDataInfo.csproj", "{F9A3BBB8-304A-4999-BD39-2245E92D9BB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5166749D-F3D2-43C4-A00F-F1C3FEE297E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5166749D-F3D2-43C4-A00F-F1C3FEE297E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5166749D-F3D2-43C4-A00F-F1C3FEE297E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5166749D-F3D2-43C4-A00F-F1C3FEE297E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F72C69CD-3BBB-4618-BD01-99B9AF3290C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F72C69CD-3BBB-4618-BD01-99B9AF3290C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F72C69CD-3BBB-4618-BD01-99B9AF3290C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F72C69CD-3BBB-4618-BD01-99B9AF3290C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9A3BBB8-304A-4999-BD39-2245E92D9BB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A3BBB8-304A-4999-BD39-2245E92D9BB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A3BBB8-304A-4999-BD39-2245E92D9BB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A3BBB8-304A-4999-BD39-2245E92D9BB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

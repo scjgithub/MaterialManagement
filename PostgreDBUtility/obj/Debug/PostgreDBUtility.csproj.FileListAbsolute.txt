@@ -1,0 +1,7 @@
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\PostgreDBUtility\bin\Debug\PostgreDBUtility.dll
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\PostgreDBUtility\bin\Debug\PostgreDBUtility.pdb
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\PostgreDBUtility\bin\Debug\Npgsql.dll
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\PostgreDBUtility\bin\Debug\Mono.Security.dll
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\PostgreDBUtility\obj\Debug\PostgreDBUtility.csprojResolveAssemblyReference.cache
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\PostgreDBUtility\obj\Debug\PostgreDBUtility.dll
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\PostgreDBUtility\obj\Debug\PostgreDBUtility.pdb

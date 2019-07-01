@@ -1,0 +1,9 @@
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\LoginDataInfo\bin\Debug\LoginDataInfo.dll
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\LoginDataInfo\bin\Debug\LoginDataInfo.pdb
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\LoginDataInfo\obj\Debug\LoginDataInfo.csprojResolveAssemblyReference.cache
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\LoginDataInfo\obj\Debug\LoginDataInfo.dll
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\LoginDataInfo\obj\Debug\LoginDataInfo.pdb
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\LoginDataInfo\bin\Debug\PostgreDBUtility.dll
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\LoginDataInfo\bin\Debug\Npgsql.dll
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\LoginDataInfo\bin\Debug\Mono.Security.dll
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\LoginDataInfo\bin\Debug\PostgreDBUtility.pdb

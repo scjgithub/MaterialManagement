@@ -1,0 +1,14 @@
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\PostgreDBUtility\bin\Release\PostgreDBUtility.dll
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\PostgreDBUtility\bin\Release\PostgreDBUtility.pdb
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\PostgreDBUtility\bin\Release\Npgsql.dll
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\PostgreDBUtility\bin\Release\Mono.Security.dll
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\PostgreDBUtility\obj\Release\PostgreDBUtility.dll
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\PostgreDBUtility\obj\Release\PostgreDBUtility.pdb
+E:\SVNCode\trunk\MaterialManagement\MaterialManagement\PostgreDBUtility\obj\Release\PostgreDBUtility.csprojResolveAssemblyReference.cache
+C:\Users\宋超杰\Desktop\MaterialManagement\PostgreDBUtility\bin\Release\PostgreDBUtility.dll
+C:\Users\宋超杰\Desktop\MaterialManagement\PostgreDBUtility\bin\Release\PostgreDBUtility.pdb
+C:\Users\宋超杰\Desktop\MaterialManagement\PostgreDBUtility\bin\Release\Npgsql.dll
+C:\Users\宋超杰\Desktop\MaterialManagement\PostgreDBUtility\bin\Release\Mono.Security.dll
+C:\Users\宋超杰\Desktop\MaterialManagement\PostgreDBUtility\obj\Release\PostgreDBUtility.csprojResolveAssemblyReference.cache
+C:\Users\宋超杰\Desktop\MaterialManagement\PostgreDBUtility\obj\Release\PostgreDBUtility.dll
+C:\Users\宋超杰\Desktop\MaterialManagement\PostgreDBUtility\obj\Release\PostgreDBUtility.pdb
