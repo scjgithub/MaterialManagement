@@ -42,7 +42,7 @@ namespace MaterialManagement
                     txtCategoryThree.Text = dr[3].ToString();
                     txtMaterialName.Text = dr[4].ToString();
                     txtSpecification.Text = dr[5].ToString();
-                    txtSpecification.Text = dr[10].ToString();
+                    txtSpecificationModle.Text = dr[10].ToString();
                     txtNote.Text = dr[8].ToString();
                     txtPrice.Text = dr[9].ToString();
                     if (txtPrice.Text == "")
