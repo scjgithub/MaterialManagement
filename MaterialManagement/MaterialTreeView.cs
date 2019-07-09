@@ -203,5 +203,10 @@ namespace MaterialManagement
                 //this.Close();
             }
         }
+
+        private void materiaTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
     }
 }

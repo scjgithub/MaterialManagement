@@ -49,10 +49,15 @@
             this.specification = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specificationmodle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inouttype = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inoutnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.operatetime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.operater = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.whereabouts = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inoutnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOutList)).BeginInit();
@@ -197,10 +202,15 @@
             this.specification,
             this.specificationmodle,
             this.inouttype,
-            this.inoutnum,
             this.operatetime,
             this.operater,
-            this.whereabouts});
+            this.whereabouts,
+            this.inoutnum,
+            this.price,
+            this.total,
+            this.brand,
+            this.supplier,
+            this.note});
             this.dgvOutList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvOutList.Location = new System.Drawing.Point(0, 0);
             this.dgvOutList.Name = "dgvOutList";
@@ -215,13 +225,14 @@
             this.barcode.HeaderText = "编码";
             this.barcode.Name = "barcode";
             this.barcode.ReadOnly = true;
+            this.barcode.Width = 60;
             // 
             // materialname
             // 
             this.materialname.HeaderText = "名称";
             this.materialname.Name = "materialname";
             this.materialname.ReadOnly = true;
-            this.materialname.Width = 150;
+            this.materialname.Width = 60;
             // 
             // specification
             // 
@@ -241,21 +252,10 @@
             this.inouttype.Name = "inouttype";
             this.inouttype.Width = 90;
             // 
-            // inoutnum
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            this.inoutnum.DefaultCellStyle = dataGridViewCellStyle1;
-            this.inoutnum.HeaderText = "数量";
-            this.inoutnum.Name = "inoutnum";
-            this.inoutnum.ReadOnly = true;
-            this.inoutnum.Width = 80;
-            // 
             // operatetime
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.operatetime.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.operatetime.DefaultCellStyle = dataGridViewCellStyle1;
             this.operatetime.HeaderText = "时间";
             this.operatetime.Name = "operatetime";
             this.operatetime.Width = 120;
@@ -268,9 +268,49 @@
             // 
             // whereabouts
             // 
-            this.whereabouts.HeaderText = "出库去向";
+            this.whereabouts.HeaderText = "客户名称";
             this.whereabouts.Name = "whereabouts";
             this.whereabouts.Width = 110;
+            // 
+            // inoutnum
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            this.inoutnum.DefaultCellStyle = dataGridViewCellStyle2;
+            this.inoutnum.HeaderText = "数量";
+            this.inoutnum.Name = "inoutnum";
+            this.inoutnum.ReadOnly = true;
+            this.inoutnum.Width = 80;
+            // 
+            // price
+            // 
+            this.price.HeaderText = "单价";
+            this.price.Name = "price";
+            this.price.Width = 60;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "总价";
+            this.total.Name = "total";
+            this.total.Width = 60;
+            // 
+            // brand
+            // 
+            this.brand.HeaderText = "品牌";
+            this.brand.Name = "brand";
+            this.brand.Width = 60;
+            // 
+            // supplier
+            // 
+            this.supplier.HeaderText = "供应商";
+            this.supplier.Name = "supplier";
+            this.supplier.Width = 70;
+            // 
+            // note
+            // 
+            this.note.HeaderText = "备注";
+            this.note.Name = "note";
             // 
             // HistoryInquery
             // 
@@ -311,9 +351,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn specification;
         private System.Windows.Forms.DataGridViewTextBoxColumn specificationmodle;
         private System.Windows.Forms.DataGridViewTextBoxColumn inouttype;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inoutnum;
         private System.Windows.Forms.DataGridViewTextBoxColumn operatetime;
         private System.Windows.Forms.DataGridViewTextBoxColumn operater;
         private System.Windows.Forms.DataGridViewTextBoxColumn whereabouts;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inoutnum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn brand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplier;
+        private System.Windows.Forms.DataGridViewTextBoxColumn note;
     }
 }

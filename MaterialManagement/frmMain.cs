@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 //using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace MaterialManagement
 {
@@ -20,7 +21,7 @@ namespace MaterialManagement
         }
 
         public static MaterialTreeView mTree = new MaterialTreeView();
-        
+
         //用户名
         public static string user_Name = "Admin";
         MaterialTreeView treeFrm;
@@ -66,7 +67,7 @@ namespace MaterialManagement
             splitContainer1.Panel1.Controls.Add(treeFrm);
             treeFrm.Dock = DockStyle.Fill;
             treeFrm.materialSelectNodify = SelectNodify;
-            
+
         }
 
         public void SelectNodify()
@@ -78,10 +79,10 @@ namespace MaterialManagement
         }
 
         //定义查询数据库字段名称
-        string[] dbFields = { "materialname", "barcode", "categoryone", "categorytwo", "categorythree", "materialname", "specification", "specificationModle" };
+        string[] dbFields = { "materialname", "barcode", "categoryone", "categorytwo", "categorythree", "materialname", "specification", "supplier", "total", "remainnum", "price" };
         private void btnQuery_Click(object sender, EventArgs e)
         {
-            string txt = txtQuery.Text;
+            string txt = txtQuery.Text;            
             int itemIndex = cmbQuery.SelectedIndex;
             if (itemIndex < 0)
             {
@@ -110,6 +111,9 @@ namespace MaterialManagement
                     foreach (DataRow dr in dt.Rows)   ///遍历所有的行
                     {
                         string barcode = dr[0].ToString();
+                        //int num = Convert.ToInt32(dr["remainnum"].ToString());
+                        //double numPrice = Convert.ToInt32(dr["price"].ToString());
+                        //double numTotal = num * numPrice;
                         //if (CheckBarCodeExist(barcode, dgvMaterialList))
                         //{
                         //    continue;
@@ -120,15 +124,20 @@ namespace MaterialManagement
                         dgvMaterialList.Rows[index].Cells["specification"].Value = dr["specification"].ToString();
                         dgvMaterialList.Rows[index].Cells["specificationmodle"].Value = dr["specificationmodle"].ToString();
                         dgvMaterialList.Rows[index].Cells["remainnum"].Value = dr["remainnum"].ToString();
+                        dgvMaterialList.Rows[index].Cells["supplier"].Value = dr["supplier"].ToString();
+                        dgvMaterialList.Rows[index].Cells["total"].Value = dr["total"].ToString();
                         dgvMaterialList.Rows[index].Cells["categoryone"].Value = dr["categoryone"].ToString();
                         dgvMaterialList.Rows[index].Cells["categorytwo"].Value = dr["categorytwo"].ToString();
                         dgvMaterialList.Rows[index].Cells["categorythree"].Value = dr["categorythree"].ToString();
                         dgvMaterialList.Rows[index].Cells["price"].Value = dr["price"].ToString();
                         dgvMaterialList.Rows[index].Cells["note"].Value = dr["note"].ToString();
+                        dgvMaterialList.Rows[index].Cells["warn"].Value = dr["threshold"].ToString();
+
+                        
 
                         int nThreshold = int.Parse(dr["threshold"].ToString());
                         int nRemain = int.Parse(dr["remainnum"].ToString());
-                        if (nRemain < nThreshold)
+                        if (nRemain <= nThreshold)
                         {
                             dgvMaterialList.Rows[index].DefaultCellStyle.ForeColor = Color.Red;
                         }
@@ -160,11 +169,17 @@ namespace MaterialManagement
 
         private void btnInMaterial_Click(object sender, EventArgs e)
         {
-            if (LoginData.Authority == Authority.Guest)
+            //权限管理
+            if (!CheckAuthority.Check(LoginData.Authority, Authority.Buyer))
             {
                 MessageBox.Show("你还没有权限进行操作！. \n 请联系管理员. \n ", "Authority!", MessageBoxButtons.OK);
                 return;
             }
+            //if (LoginData.Authority == Authority.Guest || LoginData.Authority == Authority.WareHouse)
+            //{
+            //    MessageBox.Show("你还没有权限进行操作！. \n 请联系管理员. \n ", "Authority!", MessageBoxButtons.OK);
+            //    return;
+            //}
             InMaterial fm = new InMaterial();
             fm.Show();
 
@@ -200,11 +215,17 @@ namespace MaterialManagement
 
         private void btnOutMaterial_Click(object sender, EventArgs e)
         {
-            if (LoginDataInfo.LoginData.Authority == Authority.Guest)
+            //权限管理
+            if (!CheckAuthority.Check(LoginData.Authority, Authority.WareHouse))
             {
                 MessageBox.Show("你还没有权限进行操作！. \n 请联系管理员. \n ", "Authority!", MessageBoxButtons.OK);
                 return;
             }
+            //if (LoginDataInfo.LoginData.Authority == Authority.Guest || LoginDataInfo.LoginData.Authority == Authority.Buyer)
+            //{
+            //    MessageBox.Show("你还没有权限进行操作！. \n 请联系管理员. \n ", "Authority!", MessageBoxButtons.OK);
+            //    return;
+            //}
             OutMaterial fm = new OutMaterial();
             fm.ShowDialog();
 
@@ -303,6 +324,19 @@ namespace MaterialManagement
 
         private void modifyInfoStripMenuItem1_Click(object sender, EventArgs e)
         {
+            //权限管理
+            if (!CheckAuthority.Check(LoginData.Authority, Authority.WareHouse))
+            {
+                MessageBox.Show("你还没有权限进行操作！. \n 请联系管理员. \n ", "Authority!", MessageBoxButtons.OK);
+                return;
+            }
+            //权限管理|| LoginData.Authority == Authority.WareHouse
+            //if (LoginData.Authority == Authority.Guest )
+            //{
+            //    MessageBox.Show("你还没有权限进行操作！. \n 请联系管理员. \n ", "Authority!", MessageBoxButtons.OK);
+            //    return;
+            //}
+
             int rowIndex = dgvMaterialList.CurrentCell.RowIndex;
             if (rowIndex < 0)
             {
@@ -313,9 +347,40 @@ namespace MaterialManagement
             fmModify.ShowDialog();
         }
 
-        private void dgvMaterialList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnPrint_Click(object sender, EventArgs e)
         {
+            try
+            {
+                System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog();
+                dialog.Description = "请选择表格所在文件夹";
+                string selectPCPath = "";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    selectPCPath = dialog.SelectedPath;
+                }
+                selectPCPath += "\\库存查询记录.csv";
+                string sql = "";
+                foreach (DataGridViewRow row in dgvMaterialList.Rows)
+                {
+                    sql = "select * from material where barcode='" + row.Cells["barcode"].Value + "'";
+                    prints.Export(selectPCPath, sql);
+                }
 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
+            MessageBox.Show("成功导出");
         }
+
+     
+
+
+
+
+
+
     }
 }

@@ -48,9 +48,11 @@
             this.btnOutMaterial = new System.Windows.Forms.Button();
             this.btnInMaterial = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.btnMaterialList = new System.Windows.Forms.Button();
             this.barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specification = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specificationmodle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.remainnum = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,7 +60,9 @@
             this.categorytwo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categorythree = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.warn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             btnHistory = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -125,6 +129,7 @@
             this.dgvMaterialList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.barcode,
             this.materialname,
+            this.supplier,
             this.specification,
             this.specificationmodle,
             this.remainnum,
@@ -132,7 +137,9 @@
             this.categorytwo,
             this.categorythree,
             this.price,
-            this.note});
+            this.total,
+            this.note,
+            this.warn});
             this.dgvMaterialList.ContextMenuStrip = this.dgvContentMenuStrip;
             this.dgvMaterialList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMaterialList.Location = new System.Drawing.Point(0, 0);
@@ -142,7 +149,6 @@
             this.dgvMaterialList.RowTemplate.Height = 30;
             this.dgvMaterialList.Size = new System.Drawing.Size(1250, 479);
             this.dgvMaterialList.TabIndex = 2;
-            this.dgvMaterialList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaterialList_CellContentClick);
             this.dgvMaterialList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMaterialList_CellMouseDoubleClick);
             this.dgvMaterialList.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMaterialList_CellMouseUp);
             // 
@@ -214,7 +220,11 @@
             "类别二",
             "类别三",
             "物料名称",
-            "物料规格"});
+            "物料规格",
+            "供应商",
+            "总价",
+            "数量",
+            "单价"});
             this.cmbQuery.Location = new System.Drawing.Point(189, 38);
             this.cmbQuery.Name = "cmbQuery";
             this.cmbQuery.Size = new System.Drawing.Size(121, 20);
@@ -267,6 +277,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnPrint);
             this.groupBox1.Controls.Add(this.btnMaterialList);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -274,6 +285,16 @@
             this.groupBox1.Size = new System.Drawing.Size(1480, 83);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(1116, 16);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(96, 53);
+            this.btnPrint.TabIndex = 1;
+            this.btnPrint.Text = "导出";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnMaterialList
             // 
@@ -291,14 +312,19 @@
             this.barcode.HeaderText = "编码";
             this.barcode.Name = "barcode";
             this.barcode.ReadOnly = true;
-            this.barcode.Width = 120;
+            this.barcode.Width = 60;
             // 
             // materialname
             // 
             this.materialname.HeaderText = "名称";
             this.materialname.Name = "materialname";
             this.materialname.ReadOnly = true;
-            this.materialname.Width = 180;
+            // 
+            // supplier
+            // 
+            this.supplier.HeaderText = "供应商";
+            this.supplier.Name = "supplier";
+            this.supplier.ReadOnly = true;
             // 
             // specification
             // 
@@ -314,7 +340,7 @@
             // 
             // remainnum
             // 
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.remainnum.DefaultCellStyle = dataGridViewCellStyle1;
             this.remainnum.HeaderText = "库存数量";
             this.remainnum.Name = "remainnum";
@@ -347,7 +373,14 @@
             this.price.HeaderText = "价格";
             this.price.Name = "price";
             this.price.ReadOnly = true;
-            this.price.Width = 80;
+            this.price.Width = 40;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "总价";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 40;
             // 
             // note
             // 
@@ -355,6 +388,12 @@
             this.note.Name = "note";
             this.note.ReadOnly = true;
             this.note.Width = 90;
+            // 
+            // warn
+            // 
+            this.warn.HeaderText = "阈警";
+            this.warn.Name = "warn";
+            this.warn.ReadOnly = true;
             // 
             // frmMain
             // 
@@ -400,8 +439,10 @@
         private System.Windows.Forms.Button btnInMaterial;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnMaterialList;
+        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.DataGridViewTextBoxColumn barcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn materialname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn supplier;
         private System.Windows.Forms.DataGridViewTextBoxColumn specification;
         private System.Windows.Forms.DataGridViewTextBoxColumn specificationmodle;
         private System.Windows.Forms.DataGridViewTextBoxColumn remainnum;
@@ -409,7 +450,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn categorytwo;
         private System.Windows.Forms.DataGridViewTextBoxColumn categorythree;
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.DataGridViewTextBoxColumn note;
+        private System.Windows.Forms.DataGridViewTextBoxColumn warn;
     }
 }
 

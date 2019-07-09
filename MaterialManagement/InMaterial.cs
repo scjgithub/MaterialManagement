@@ -17,17 +17,23 @@ namespace MaterialManagement
         {
             InitializeComponent();
         }
-
+        double beforTotal = 0;
+        string[] dbFields = { "materialname", "barcode", "materialname", "specification", "supplier", "total", "remainnum", "price" };
         private void btnQuery_Click(object sender, EventArgs e)
         {
             string txt = txtQuery.Text;
-            if (txt == string.Empty)
+            int itemIndex = cmbQuery.SelectedIndex;
+            if (itemIndex < 0)
             {
                 return;
             }
 
             //query string
-            string queryString = "select * from material where barcode = '" + txt + "'";
+            string queryString = "select * from material where lower(" + dbFields[itemIndex] + ") like '%" + txt.ToLower() + "%'";
+            if (txt == string.Empty)
+            {
+                queryString = "select * from material";
+            }
             try
             {
                 DataTable dt = DataDBInfo.QueryDBInfo(queryString);
@@ -42,9 +48,17 @@ namespace MaterialManagement
                     txtCategoryThree.Text = dr[3].ToString();
                     txtMaterialName.Text = dr[4].ToString();
                     txtSpecification.Text = dr[5].ToString();
-                    txtSpecificationModle.Text = dr[10].ToString();
+                    txtAddNum.Text = dr[6].ToString();  
                     txtNote.Text = dr[8].ToString();
                     txtPrice.Text = dr[9].ToString();
+                    txtSupplier.Text = dr[11].ToString();
+                    txtSpecificationModle1.Text = dr[10].ToString();
+                    txtBrand.Text = dr[12].ToString();
+                    string num = txtAddNum.Text;
+                    string price = txtPrice.Text;
+                    int num1 = Convert.ToInt32(num);
+                    int price1 = Convert.ToInt32(price);
+                    beforTotal = num1 * price1;
                     if (txtPrice.Text == "")
                     {
                         txtPrice.Text = "0";
@@ -63,6 +77,26 @@ namespace MaterialManagement
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+
+            string supplier = txtSupplier.Text;
+            string brand = txtBrand.Text;
+            if ((supplier == null || supplier.Equals("")) && (brand == null || brand.Equals("")))
+            {
+                MessageBox.Show("供应商或品牌不能为空！！");
+                return;
+            }
+            string num = txtAddNum.Text;
+            string price = txtPrice.Text;
+            int num1 = Convert.ToInt32(num);
+            int price1 = Convert.ToInt32(price);
+            int total = num1 * price1;
+            if (num.Equals("") || price.Equals(""))
+            {
+                MessageBox.Show("数量或单价不能为空");
+                return;
+            }
+            
+            
             //检查编码的有效性
             string barcode = txtBarCode.Text;
             //if (barcode.Length <= 5)
@@ -77,6 +111,17 @@ namespace MaterialManagement
                 {
                     if (row.Cells["barcode"].Value.ToString() == barcode)
                         row.Cells["InNum"].Value = txtAddNum.Text;
+                    row.Cells["categoryone"].Value = txtCategoryOne.Text;
+                    row.Cells["categorytwo"].Value = txtCategoryTwo.Text;
+                    row.Cells["categorythree"].Value = txtCategoryThree.Text;
+                    row.Cells["materialname"].Value = txtMaterialName.Text;
+                    row.Cells["specification"].Value = txtSpecification.Text;
+                    row.Cells["specificationModle"].Value = txtSpecificationModle1.Text;
+                    row.Cells["price"].Value = txtPrice.Text;
+                    row.Cells["supplier"].Value = txtSupplier.Text;
+                    row.Cells["brand"].Value = txtBrand.Text;
+                    row.Cells["note"].Value = txtNote.Text;
+                    row.Cells["total"].Value = total;
                 }
                 return;
             }
@@ -88,11 +133,14 @@ namespace MaterialManagement
             dgvInList.Rows[index].Cells["categorythree"].Value = txtCategoryThree.Text;
             dgvInList.Rows[index].Cells["materialname"].Value = txtMaterialName.Text;
             dgvInList.Rows[index].Cells["specification"].Value = txtSpecification.Text;
-            //dgvInList.Rows[index].Cells["specificationModle"].Value = txtSpecificationModle.Text;
+            dgvInList.Rows[index].Cells["specificationmodle"].Value = txtSpecificationModle1.Text;
             dgvInList.Rows[index].Cells["remainnum"].Value = DataDBInfo.GetRemainNumByBarCode(barcode);
             dgvInList.Rows[index].Cells["InNum"].Value = txtAddNum.Text;
             dgvInList.Rows[index].Cells["note"].Value = txtNote.Text;
             dgvInList.Rows[index].Cells["price"].Value = txtPrice.Text;
+            dgvInList.Rows[index].Cells["supplier"].Value = txtSupplier.Text;
+            dgvInList.Rows[index].Cells["brand"].Value = txtBrand.Text;
+            dgvInList.Rows[index].Cells["total"].Value = total;
         }
 
         private void txtQuery_KeyDown(object sender, KeyEventArgs e)
@@ -105,39 +153,58 @@ namespace MaterialManagement
         }
 
         private void btnAddInMaterial_Click(object sender, EventArgs e)
-        {
+        {            
             //遍历循环要添加的列
             foreach (DataGridViewRow row in dgvInList.Rows)
             {
                 int addNum = 0;
+                int addNums1 =Convert.ToInt32( row.Cells["InNum"].Value.ToString());
+                int remainnum =Convert.ToInt32( row.Cells["remainnum"].Value.ToString());                
+                double numPrice1 = Convert.ToInt32(row.Cells["price"].Value.ToString());
+                double numTotal1 = beforTotal + (addNums1 * numPrice1);
+                numPrice1 = numTotal1 / (remainnum + addNums1);
+                string numPrice =Convert.ToString(numPrice1) ;
+                string numTotal = Convert.ToString(numTotal1);
                 string addNums = row.Cells["InNum"].Value.ToString();
+
+                string numSupplier = row.Cells["supplier"].Value.ToString();
+                string numBrand = row.Cells["brand"].Value.ToString();
                 if (addNums != string.Empty)
-                {
-                    addNum = int.Parse(addNums);
+                {                   
+                    addNum = int.Parse(addNums);               
                 }
-                string queryString = "update material set remainnum = remainnum  + " + addNum + " where barcode = '" + row.Cells[0].Value.ToString() + "'";
+                string queryString = "update material set remainnum = remainnum  + " + addNum+",supplier='"+numSupplier+"', brand='" +numBrand+"',price= '"+numPrice+"',total='"+numTotal+"'  where barcode = '" + row.Cells[0].Value.ToString() + "'";
                 int rowAffect = DataDBInfo.ExecuteSQLQuery(queryString);
 
                 if (rowAffect == 0)
                 {
-                    queryString = "insert into material (barcode,categoryone,categorytwo,categorythree,materialname,specification,specificationmodle,remainnum,note) values('"
+                    queryString = "insert into material (barcode,categoryone,categorytwo,categorythree,threshold,materialname,specification,specificationmodle,supplier,brand,price,total,remainnum,note) values('"
                         + row.Cells["barcode"].Value.ToString() + "','"
                         + row.Cells["categoryone"].Value.ToString() + "','"
                         + row.Cells["categorytwo"].Value.ToString() + "','"
                         + row.Cells["categorythree"].Value.ToString() + "','"
+                        + txtThresHodl.Text + "','"
                         + row.Cells["materialname"].Value.ToString() + "','"
                         + row.Cells["specification"].Value.ToString() + "','"
                         + row.Cells["specificationModle"].Value.ToString() + "','"
+                        + row.Cells["supplier"].Value.ToString() + "','"
+                        + row.Cells["brand"].Value.ToString() + "','"
+                        + row.Cells["price"].Value.ToString() + "','"
+                        + row.Cells["total"].Value.ToString() + "','"
                         + row.Cells["InNum"].Value.ToString() + "','"
                         + row.Cells["note"].Value.ToString() + "')";
                     DataDBInfo.ExecuteSQLQuery(queryString);
                 }
 
-                string historyString = "insert into history Values('"
+                string historyString = "insert into history(barcode,materialname,supplier,total,brand,price,note,specification,inouttype,Inoutnum,operatetime,operater) Values('"
                         + row.Cells["barcode"].Value.ToString() + "','"
                         + row.Cells["materialname"].Value.ToString() + "','"
-                        + row.Cells["specification"].Value.ToString() + "','"
-                        + row.Cells["specificationmodle"].Value.ToString() + "','"  
+                        + row.Cells["supplier"].Value.ToString() + "','"
+                        + row.Cells["total"].Value.ToString() + "','"
+                        + row.Cells["brand"].Value.ToString() + "','"
+                        + row.Cells["price"].Value.ToString() + "','"
+                        + row.Cells["note"].Value.ToString() + "','"
+                        + row.Cells["specification"].Value.ToString() + "','"                        
                         + "入库','"
                         + row.Cells["InNum"].Value.ToString() + "','"
                         + DateTime.Now.ToString() + "','"
@@ -221,9 +288,50 @@ namespace MaterialManagement
             }
         }
 
-        private void dgvInList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void InMaterial_Load(object sender, EventArgs e)
         {
-
+            //设置combox
+            this.cmbQuery.SelectedIndex = 0;
+            //设置txtQuery
+            this.txtQuery.AutoSize = false;
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog();
+                dialog.Description = "请选择表格所在文件夹";
+                string selectPCPath = "";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    selectPCPath = dialog.SelectedPath;
+                }
+                string sql = "select * from material where barcode='" + txtBarCode.Text + "'";
+                selectPCPath += "\\入库记录.csv";
+                prints.Export(selectPCPath, sql);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
+            
+            
+            
+            MessageBox.Show("成功导出");
+        }
+
+       
+
+        
+
+
+
+        
+
+       
+
+       
     }
 }

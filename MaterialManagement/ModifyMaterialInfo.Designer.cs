@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSpecificationＭodle = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.txtCategoryTwo = new System.Windows.Forms.TextBox();
             this.txtRemainNum = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
@@ -49,12 +51,17 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.label101 = new System.Windows.Forms.Label();
+            this.txtThresHold = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.txtSpecificationＭodle);
+            this.groupBox1.Controls.Add(this.txtThresHold);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtCategoryTwo);
             this.groupBox1.Controls.Add(this.txtRemainNum);
             this.groupBox1.Controls.Add(this.txtPrice);
@@ -66,7 +73,6 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label101);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtMaterialName);
             this.groupBox1.Controls.Add(this.label6);
@@ -76,11 +82,26 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Location = new System.Drawing.Point(28, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(504, 229);
+            this.groupBox1.Size = new System.Drawing.Size(504, 253);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "物料信息";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txtSpecificationＭodle
+            // 
+            this.txtSpecificationＭodle.Location = new System.Drawing.Point(87, 143);
+            this.txtSpecificationＭodle.Name = "txtSpecificationＭodle";
+            this.txtSpecificationＭodle.Size = new System.Drawing.Size(142, 21);
+            this.txtSpecificationＭodle.TabIndex = 21;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(16, 149);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(65, 12);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "规格名称：";
             // 
             // txtCategoryTwo
             // 
@@ -110,7 +131,7 @@
             // txtNote
             // 
             this.txtNote.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNote.Location = new System.Drawing.Point(87, 144);
+            this.txtNote.Location = new System.Drawing.Point(86, 183);
             this.txtNote.Name = "txtNote";
             this.txtNote.Size = new System.Drawing.Size(142, 21);
             this.txtNote.TabIndex = 19;
@@ -161,7 +182,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 149);
+            this.label3.Location = new System.Drawing.Point(39, 185);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 11;
@@ -183,7 +204,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 12);
             this.label9.TabIndex = 11;
-            this.label9.Text = "物料规格：";
+            this.label9.Text = "规格类型：";
             // 
             // txtMaterialName
             // 
@@ -256,14 +277,21 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // label101
+            // txtThresHold
             // 
-            this.label101.AutoSize = true;
-            this.label101.Location = new System.Drawing.Point(40, 185);
-            this.label101.Name = "lab1";
-            this.label101.Size = new System.Drawing.Size(65, 12);
-            this.label101.TabIndex = 11;
-            this.label101.Text = "物料规格：";
+            this.txtThresHold.Location = new System.Drawing.Point(87, 216);
+            this.txtThresHold.Name = "txtThresHold";
+            this.txtThresHold.Size = new System.Drawing.Size(141, 21);
+            this.txtThresHold.TabIndex = 19;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(27, 221);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "预警值：";
             // 
             // ModifyMaterialInfo
             // 
@@ -306,7 +334,10 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label101;
+        private System.Windows.Forms.TextBox txtSpecificationＭodle;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtThresHold;
 
     }
 }

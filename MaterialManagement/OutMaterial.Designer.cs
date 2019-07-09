@@ -29,14 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OutMaterial));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvMaterialList = new System.Windows.Forms.DataGridView();
+            this.barcode1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialname1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specification1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specification1Modle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remainnum1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categorytwo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categorythree1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.cmbQuery = new System.Windows.Forms.ComboBox();
             this.btnMaterialList = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -46,16 +58,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtWhereabouts = new System.Windows.Forms.TextBox();
-            this.txtBarCode = new System.Windows.Forms.TextBox();
+            this.txtQuery = new System.Windows.Forms.TextBox();
             this.btnOutMaterial = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dgvOutList = new System.Windows.Forms.DataGridView();
-            this.dgvContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.clearAlltoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specification = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,16 +73,16 @@
             this.categoryone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categorytwo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categorythree = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.barcode1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialname1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specification1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.specification1Modle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remainnum1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryone1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categorytwo1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categorythree1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.clearAlltoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnclear = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterialList)).BeginInit();
@@ -122,6 +129,8 @@
             this.categoryone1,
             this.categorytwo1,
             this.categorythree1,
+            this.price1,
+            this.total1,
             this.note1});
             this.dgvMaterialList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMaterialList.Location = new System.Drawing.Point(0, 0);
@@ -131,11 +140,86 @@
             this.dgvMaterialList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMaterialList.Size = new System.Drawing.Size(1145, 149);
             this.dgvMaterialList.TabIndex = 1;
-            this.dgvMaterialList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaterialList_CellContentClick);
             this.dgvMaterialList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMaterialList_CellMouseDoubleClick);
+            // 
+            // barcode1
+            // 
+            this.barcode1.HeaderText = "编码";
+            this.barcode1.Name = "barcode1";
+            this.barcode1.ReadOnly = true;
+            this.barcode1.Width = 80;
+            // 
+            // materialname1
+            // 
+            this.materialname1.HeaderText = "名称";
+            this.materialname1.Name = "materialname1";
+            this.materialname1.ReadOnly = true;
+            // 
+            // specification1
+            // 
+            this.specification1.HeaderText = "规格类型";
+            this.specification1.Name = "specification1";
+            this.specification1.ReadOnly = true;
+            this.specification1.Width = 110;
+            // 
+            // specification1Modle
+            // 
+            this.specification1Modle.HeaderText = "规格名称";
+            this.specification1Modle.Name = "specification1Modle";
+            this.specification1Modle.ReadOnly = true;
+            this.specification1Modle.Width = 110;
+            // 
+            // remainnum1
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
+            this.remainnum1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.remainnum1.HeaderText = "库存数量";
+            this.remainnum1.Name = "remainnum1";
+            this.remainnum1.ReadOnly = true;
+            this.remainnum1.Width = 80;
+            // 
+            // categoryone1
+            // 
+            this.categoryone1.HeaderText = "物料类别一";
+            this.categoryone1.Name = "categoryone1";
+            this.categoryone1.ReadOnly = true;
+            this.categoryone1.Width = 110;
+            // 
+            // categorytwo1
+            // 
+            this.categorytwo1.HeaderText = "物料类别二";
+            this.categorytwo1.Name = "categorytwo1";
+            this.categorytwo1.ReadOnly = true;
+            this.categorytwo1.Width = 110;
+            // 
+            // categorythree1
+            // 
+            this.categorythree1.HeaderText = "物料类别三";
+            this.categorythree1.Name = "categorythree1";
+            this.categorythree1.ReadOnly = true;
+            this.categorythree1.Width = 110;
+            // 
+            // price1
+            // 
+            this.price1.HeaderText = "单价";
+            this.price1.Name = "price1";
+            // 
+            // total1
+            // 
+            this.total1.HeaderText = "总价";
+            this.total1.Name = "total1";
+            // 
+            // note1
+            // 
+            this.note1.HeaderText = "备注";
+            this.note1.Name = "note1";
+            this.note1.ReadOnly = true;
+            this.note1.Width = 70;
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.cmbQuery);
             this.panel4.Controls.Add(this.btnMaterialList);
             this.panel4.Controls.Add(this.btnClose);
             this.panel4.Controls.Add(this.btnAdd);
@@ -145,12 +229,32 @@
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.txtWhereabouts);
-            this.panel4.Controls.Add(this.txtBarCode);
+            this.panel4.Controls.Add(this.txtQuery);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1145, 73);
             this.panel4.TabIndex = 41;
+            // 
+            // cmbQuery
+            // 
+            this.cmbQuery.FormattingEnabled = true;
+            this.cmbQuery.Items.AddRange(new object[] {
+            "快速查询",
+            "编码",
+            "类别一",
+            "类别二",
+            "类别三",
+            "物料名称",
+            "物料规格",
+            "供应商",
+            "总价",
+            "数量",
+            "单价"});
+            this.cmbQuery.Location = new System.Drawing.Point(150, 12);
+            this.cmbQuery.Name = "cmbQuery";
+            this.cmbQuery.Size = new System.Drawing.Size(157, 20);
+            this.cmbQuery.TabIndex = 56;
             // 
             // btnMaterialList
             // 
@@ -228,17 +332,17 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 29);
             this.label3.TabIndex = 50;
-            this.label3.Text = "出库去向";
+            this.label3.Text = "客户名称";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(88, 27);
+            this.label1.Location = new System.Drawing.Point(93, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 29);
+            this.label1.Size = new System.Drawing.Size(62, 29);
             this.label1.TabIndex = 50;
-            this.label1.Text = "库存编码查询";
+            this.label1.Text = "库存查询";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtWhereabouts
@@ -248,19 +352,19 @@
             this.txtWhereabouts.Size = new System.Drawing.Size(157, 21);
             this.txtWhereabouts.TabIndex = 48;
             // 
-            // txtBarCode
+            // txtQuery
             // 
-            this.txtBarCode.Location = new System.Drawing.Point(184, 32);
-            this.txtBarCode.Name = "txtBarCode";
-            this.txtBarCode.Size = new System.Drawing.Size(157, 21);
-            this.txtBarCode.TabIndex = 48;
+            this.txtQuery.Location = new System.Drawing.Point(150, 39);
+            this.txtQuery.Name = "txtQuery";
+            this.txtQuery.Size = new System.Drawing.Size(157, 21);
+            this.txtQuery.TabIndex = 48;
             // 
             // btnOutMaterial
             // 
             this.btnOutMaterial.ForeColor = System.Drawing.Color.Red;
             this.btnOutMaterial.Image = ((System.Drawing.Image)(resources.GetObject("btnOutMaterial.Image")));
             this.btnOutMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOutMaterial.Location = new System.Drawing.Point(770, 5);
+            this.btnOutMaterial.Location = new System.Drawing.Point(637, 5);
             this.btnOutMaterial.Name = "btnOutMaterial";
             this.btnOutMaterial.Size = new System.Drawing.Size(107, 39);
             this.btnOutMaterial.TabIndex = 53;
@@ -305,6 +409,8 @@
             this.categoryone,
             this.categorytwo,
             this.categorythree,
+            this.price,
+            this.total,
             this.note});
             this.dgvOutList.ContextMenuStrip = this.dgvContextMenuStrip;
             this.dgvOutList.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -314,8 +420,101 @@
             this.dgvOutList.RowTemplate.Height = 30;
             this.dgvOutList.Size = new System.Drawing.Size(1145, 314);
             this.dgvOutList.TabIndex = 2;
-            this.dgvOutList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOutList_CellContentClick);
             this.dgvOutList.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvOutList_CellMouseUp);
+            // 
+            // barcode
+            // 
+            this.barcode.HeaderText = "编码";
+            this.barcode.Name = "barcode";
+            this.barcode.ReadOnly = true;
+            this.barcode.Width = 60;
+            // 
+            // materialname
+            // 
+            this.materialname.HeaderText = "名称";
+            this.materialname.Name = "materialname";
+            this.materialname.ReadOnly = true;
+            this.materialname.Width = 70;
+            // 
+            // specification
+            // 
+            this.specification.HeaderText = "规格类型";
+            this.specification.Name = "specification";
+            this.specification.ReadOnly = true;
+            this.specification.Width = 110;
+            // 
+            // specificationModle
+            // 
+            this.specificationModle.HeaderText = "规格名称";
+            this.specificationModle.Name = "specificationModle";
+            this.specificationModle.ReadOnly = true;
+            this.specificationModle.Width = 110;
+            // 
+            // remainnum
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
+            this.remainnum.DefaultCellStyle = dataGridViewCellStyle5;
+            this.remainnum.HeaderText = "库存数量";
+            this.remainnum.Name = "remainnum";
+            this.remainnum.ReadOnly = true;
+            this.remainnum.Width = 80;
+            // 
+            // InNum
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
+            this.InNum.DefaultCellStyle = dataGridViewCellStyle6;
+            this.InNum.HeaderText = "出库数量";
+            this.InNum.Name = "InNum";
+            this.InNum.ReadOnly = true;
+            this.InNum.Width = 80;
+            // 
+            // whereabouts
+            // 
+            this.whereabouts.HeaderText = "客户名称";
+            this.whereabouts.Name = "whereabouts";
+            // 
+            // categoryone
+            // 
+            this.categoryone.HeaderText = "物料类别一";
+            this.categoryone.Name = "categoryone";
+            this.categoryone.ReadOnly = true;
+            this.categoryone.Width = 90;
+            // 
+            // categorytwo
+            // 
+            this.categorytwo.HeaderText = "物料类别二";
+            this.categorytwo.Name = "categorytwo";
+            this.categorytwo.ReadOnly = true;
+            this.categorytwo.Width = 90;
+            // 
+            // categorythree
+            // 
+            this.categorythree.HeaderText = "物料类别三";
+            this.categorythree.Name = "categorythree";
+            this.categorythree.ReadOnly = true;
+            this.categorythree.Width = 90;
+            // 
+            // price
+            // 
+            this.price.HeaderText = "单价";
+            this.price.Name = "price";
+            this.price.Width = 80;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "总价";
+            this.total.Name = "total";
+            this.total.Width = 80;
+            // 
+            // note
+            // 
+            this.note.HeaderText = "备注";
+            this.note.Name = "note";
+            this.note.ReadOnly = true;
+            this.note.Width = 60;
             // 
             // dgvContextMenuStrip
             // 
@@ -341,6 +540,8 @@
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.btnPrint);
+            this.panel5.Controls.Add(this.btnclear);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.btnOutMaterial);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
@@ -360,153 +561,25 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "物料出库信息：";
             // 
-            // barcode
+            // btnclear
             // 
-            this.barcode.HeaderText = "编码";
-            this.barcode.Name = "barcode";
-            this.barcode.ReadOnly = true;
-            this.barcode.Width = 90;
+            this.btnclear.Location = new System.Drawing.Point(781, 6);
+            this.btnclear.Name = "btnclear";
+            this.btnclear.Size = new System.Drawing.Size(93, 36);
+            this.btnclear.TabIndex = 54;
+            this.btnclear.Text = "清空列表";
+            this.btnclear.UseVisualStyleBackColor = true;
+            this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
             // 
-            // materialname
+            // btnPrint
             // 
-            this.materialname.HeaderText = "名称";
-            this.materialname.Name = "materialname";
-            this.materialname.ReadOnly = true;
-            this.materialname.Width = 120;
-            // 
-            // specification
-            // 
-            this.specification.HeaderText = "规格类型";
-            this.specification.Name = "specification";
-            this.specification.ReadOnly = true;
-            this.specification.Width = 150;
-            // 
-            // specificationModle
-            // 
-            this.specificationModle.HeaderText = "规格名称";
-            this.specificationModle.Name = "specificationModle";
-            this.specificationModle.ReadOnly = true;
-            this.specificationModle.Width = 150;
-            // 
-            // remainnum
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
-            this.remainnum.DefaultCellStyle = dataGridViewCellStyle2;
-            this.remainnum.HeaderText = "库存数量";
-            this.remainnum.Name = "remainnum";
-            this.remainnum.ReadOnly = true;
-            this.remainnum.Width = 80;
-            // 
-            // InNum
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            this.InNum.DefaultCellStyle = dataGridViewCellStyle3;
-            this.InNum.HeaderText = "出库数量";
-            this.InNum.Name = "InNum";
-            this.InNum.ReadOnly = true;
-            this.InNum.Width = 80;
-            // 
-            // whereabouts
-            // 
-            this.whereabouts.HeaderText = "出库去处";
-            this.whereabouts.Name = "whereabouts";
-            // 
-            // categoryone
-            // 
-            this.categoryone.HeaderText = "物料类别一";
-            this.categoryone.Name = "categoryone";
-            this.categoryone.ReadOnly = true;
-            this.categoryone.Width = 90;
-            // 
-            // categorytwo
-            // 
-            this.categorytwo.HeaderText = "物料类别二";
-            this.categorytwo.Name = "categorytwo";
-            this.categorytwo.ReadOnly = true;
-            this.categorytwo.Width = 90;
-            // 
-            // categorythree
-            // 
-            this.categorythree.HeaderText = "物料类别三";
-            this.categorythree.Name = "categorythree";
-            this.categorythree.ReadOnly = true;
-            this.categorythree.Width = 90;
-            // 
-            // note
-            // 
-            this.note.HeaderText = "备注";
-            this.note.Name = "note";
-            this.note.ReadOnly = true;
-            this.note.Width = 60;
-            // 
-            // barcode1
-            // 
-            this.barcode1.HeaderText = "编码";
-            this.barcode1.Name = "barcode1";
-            this.barcode1.ReadOnly = true;
-            this.barcode1.Width = 120;
-            // 
-            // materialname1
-            // 
-            this.materialname1.HeaderText = "名称";
-            this.materialname1.Name = "materialname1";
-            this.materialname1.ReadOnly = true;
-            this.materialname1.Width = 200;
-            // 
-            // specification1
-            // 
-            this.specification1.HeaderText = "规格类型";
-            this.specification1.Name = "specification1";
-            this.specification1.ReadOnly = true;
-            this.specification1.Width = 150;
-            // 
-            // specification1Modle
-            // 
-            this.specification1Modle.HeaderText = "规格名称";
-            this.specification1Modle.Name = "specification1Modle";
-            this.specification1Modle.ReadOnly = true;
-            this.specification1Modle.Width = 150;
-            // 
-            // remainnum1
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Blue;
-            this.remainnum1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.remainnum1.HeaderText = "库存数量";
-            this.remainnum1.Name = "remainnum1";
-            this.remainnum1.ReadOnly = true;
-            this.remainnum1.Width = 80;
-            // 
-            // categoryone1
-            // 
-            this.categoryone1.HeaderText = "物料类别一";
-            this.categoryone1.Name = "categoryone1";
-            this.categoryone1.ReadOnly = true;
-            this.categoryone1.Width = 110;
-            // 
-            // categorytwo1
-            // 
-            this.categorytwo1.HeaderText = "物料类别二";
-            this.categorytwo1.Name = "categorytwo1";
-            this.categorytwo1.ReadOnly = true;
-            this.categorytwo1.Width = 110;
-            // 
-            // categorythree1
-            // 
-            this.categorythree1.HeaderText = "物料类别三";
-            this.categorythree1.Name = "categorythree1";
-            this.categorythree1.ReadOnly = true;
-            this.categorythree1.Width = 110;
-            // 
-            // note1
-            // 
-            this.note1.HeaderText = "备注";
-            this.note1.Name = "note1";
-            this.note1.ReadOnly = true;
-            this.note1.Width = 70;
+            this.btnPrint.Location = new System.Drawing.Point(910, 6);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(83, 36);
+            this.btnPrint.TabIndex = 55;
+            this.btnPrint.Text = "导出";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // OutMaterial
             // 
@@ -518,6 +591,7 @@
             this.Name = "OutMaterial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OutMaterial";
+            this.Load += new System.EventHandler(this.OutMaterial_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterialList)).EndInit();
@@ -545,7 +619,7 @@
         private System.Windows.Forms.TextBox txtAddCount;
         private System.Windows.Forms.Button btnQuery;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtBarCode;
+        private System.Windows.Forms.TextBox txtQuery;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dgvMaterialList;
         private System.Windows.Forms.Panel panel5;
@@ -558,6 +632,17 @@
         private System.Windows.Forms.Button btnMaterialList;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtWhereabouts;
+        private System.Windows.Forms.DataGridViewTextBoxColumn barcode1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materialname1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn specification1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn specification1Modle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn remainnum1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryone1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categorytwo1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categorythree1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn note1;
         private System.Windows.Forms.DataGridViewTextBoxColumn barcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn materialname;
         private System.Windows.Forms.DataGridViewTextBoxColumn specification;
@@ -568,15 +653,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryone;
         private System.Windows.Forms.DataGridViewTextBoxColumn categorytwo;
         private System.Windows.Forms.DataGridViewTextBoxColumn categorythree;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.DataGridViewTextBoxColumn note;
-        private System.Windows.Forms.DataGridViewTextBoxColumn barcode1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn materialname1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn specification1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn specification1Modle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn remainnum1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryone1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categorytwo1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categorythree1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn note1;
+        private System.Windows.Forms.ComboBox cmbQuery;
+        private System.Windows.Forms.Button btnclear;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

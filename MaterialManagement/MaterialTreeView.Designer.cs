@@ -39,6 +39,7 @@
             this.materiaTreeView.ShowNodeToolTips = true;
             this.materiaTreeView.Size = new System.Drawing.Size(310, 524);
             this.materiaTreeView.TabIndex = 0;
+            this.materiaTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.materiaTreeView_AfterSelect);
             this.materiaTreeView.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.materiaTreeView_NodeMouseDoubleClick);
             // 
             // MaterialTreeView
