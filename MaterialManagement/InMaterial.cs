@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 //using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -91,15 +92,25 @@ namespace MaterialManagement
             }
             string num = txtAddNum.Text;
             string price = txtPrice.Text;
-            int num1 = Convert.ToInt32(num);
-            int price1 = Convert.ToInt32(price);
-            int total = num1 * price1;
+            
             if (num.Equals("") || price.Equals(""))
             {
                 MessageBox.Show("数量或单价不能为空");
                 return;
             }
-            
+            int num1=0;
+            double price1=0.0;
+            if (Regex.IsMatch(num, @"^[+-]?\d*[.]?\d*$") && Regex.IsMatch(price, @"^[+-]?\d*[.]?\d*$"))
+            {
+                num1 = Convert.ToInt32(num);
+                price1 = Convert.ToInt32(price);
+            }
+            else {
+                MessageBox.Show("单价或数量为非数字！！");
+                return;
+            }
+           
+            double total = num1 * price1;
             
             //检查编码的有效性
             string barcode = txtBarCode.Text;
@@ -157,7 +168,10 @@ namespace MaterialManagement
         }
 
         private void btnAddInMaterial_Click(object sender, EventArgs e)
-        {            
+        {
+
+            if (dgvInList.Rows.Count == 0)
+                return;
             //遍历循环要添加的列
             foreach (DataGridViewRow row in dgvInList.Rows)
             {
@@ -308,7 +322,7 @@ namespace MaterialManagement
 
 
 
-            string fileName = typeTxt.local("历史记录");
+            string fileName = typeTxt.local("入库记录");
             if (fileName == null)
             {
                 return;

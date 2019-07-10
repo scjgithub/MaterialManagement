@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -29,6 +30,15 @@ namespace MaterialManagement
         private void btnModify_Click(object sender, EventArgs e)
         {
             //set dtRow
+            string num1 = txtRemainNum.Text;
+            string price = txtPrice.Text;
+            if (!Regex.IsMatch(num1, @"^[+-]?\d*[.]?\d*$") || !Regex.IsMatch(price, @"^[+-]?\d*[.]?\d*$"))
+            {
+                MessageBox.Show("单价或数量为非数字！！");
+                return;
+            }
+            
+
             string barCode = dtRow.Cells["barcode"].Value.ToString();
             dtRow.Cells["barcode"].Value        = txtBarCode.Text;
             dtRow.Cells["materialname"].Value   = txtMaterialName.Text;
@@ -42,6 +52,7 @@ namespace MaterialManagement
             dtRow.Cells["price"].Value          = txtPrice.Text;
             dtRow.Cells["warn"].Value = txtThresHold.Text;
             dtRow.Cells["supplier"].Value = txtSupplier.Text;
+            dtRow.Cells["brand"].Value = txtBrand.Text;
             //dtRow.Cells["threshold"].Value = txtThresHold.Text;
 
             try
@@ -53,6 +64,7 @@ namespace MaterialManagement
                 string queryString = "update material set barcode = '" + dtRow.Cells["barcode"].Value.ToString() +
                                     "',materialname = '" + dtRow.Cells["materialname"].Value.ToString() +
                                     "',specification = '" + dtRow.Cells["specification"].Value.ToString() +
+                                    "',brand = '" + dtRow.Cells["brand"].Value.ToString() +
                                     "',supplier = '" + dtRow.Cells["supplier"].Value.ToString() +
                                     "',specificationmodle = '" + dtRow.Cells["specificationmodle"].Value.ToString() +
                                     "',remainnum = " + dtRow.Cells["remainnum"].Value.ToString() +
@@ -67,8 +79,9 @@ namespace MaterialManagement
                 DataDBInfo.ExecuteSQLQuery(queryString);
 
                 //modify History
-                string historyString = "insert into history(barcode,supplier,materialname,inoutnum,supplier,total,price,note,specification,specificationmodle,inouttype,operatetime,operater) Values('"
+                string historyString = "insert into history(barcode,brand,supplier,materialname,inoutnum,supplier,total,price,note,specification,specificationmodle,inouttype,operatetime,operater) Values('"
                         + dtRow.Cells["barcode"].Value.ToString() + "','"
+                        + dtRow.Cells["brand"].Value.ToString() + "','"
                         + dtRow.Cells["supplier"].Value.ToString() + "','"
                         + dtRow.Cells["materialname"].Value.ToString() + "','"
                         + dtRow.Cells["remainnum"].Value.ToString() + "','"
@@ -106,6 +119,7 @@ namespace MaterialManagement
             txtPrice.Text           = dtRow.Cells["price"].Value.ToString();
             txtThresHold.Text = dtRow.Cells["warn"].Value.ToString();
             txtSupplier.Text = dtRow.Cells["supplier"].Value.ToString();
+            txtBrand.Text = dtRow.Cells["brand"].Value.ToString();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

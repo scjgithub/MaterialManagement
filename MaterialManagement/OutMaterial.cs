@@ -163,6 +163,8 @@ namespace MaterialManagement
 
         private void btnOutMaterial_Click(object sender, EventArgs e)
         {
+            if (dgvOutList.Rows.Count == 0)
+                return;
             //遍历循环要添加的列
             foreach (DataGridViewRow row in dgvOutList.Rows)
             {
@@ -177,7 +179,11 @@ namespace MaterialManagement
                     
                 }
                 double sumnum = addNum * numprice;
-                double total = Convert.ToDouble(row.Cells["total"].Value.ToString());
+
+                double total = 0.0;
+                if(row.Cells["total"].Value.ToString()!=string.Empty){
+                    total = Convert.ToDouble(row.Cells["total"].Value.ToString());
+                }
                 double totalnum = total - sumnum;
                 string strTotal = Convert.ToString(totalnum);
                 string queryString = "update material set remainnum = remainnum  - " + addNum + ",total=" + strTotal + " where barcode = '" + row.Cells["barcode"].Value.ToString() + "'";
@@ -305,7 +311,7 @@ namespace MaterialManagement
 
 
 
-            string fileName = typeTxt.local("历史记录");
+            string fileName = typeTxt.local("出库记录");
             if (fileName == null)
             {
                 return;

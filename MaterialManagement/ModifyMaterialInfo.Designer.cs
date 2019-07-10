@@ -55,11 +55,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtBrand = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtBrand);
+            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.txtSupplier);
             this.groupBox1.Controls.Add(this.label11);
@@ -120,7 +124,7 @@
             // txtPrice
             // 
             this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPrice.Location = new System.Drawing.Point(87, 183);
+            this.txtPrice.Location = new System.Drawing.Point(86, 155);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(142, 21);
             this.txtPrice.TabIndex = 19;
@@ -128,7 +132,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 186);
+            this.label1.Location = new System.Drawing.Point(39, 159);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 12);
             this.label1.TabIndex = 11;
@@ -137,7 +141,7 @@
             // txtSpecificationModle
             // 
             this.txtSpecificationModle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSpecificationModle.Location = new System.Drawing.Point(87, 143);
+            this.txtSpecificationModle.Location = new System.Drawing.Point(87, 123);
             this.txtSpecificationModle.Name = "txtSpecificationModle";
             this.txtSpecificationModle.Size = new System.Drawing.Size(142, 21);
             this.txtSpecificationModle.TabIndex = 21;
@@ -153,7 +157,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 149);
+            this.label10.Location = new System.Drawing.Point(16, 126);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 12);
             this.label10.TabIndex = 20;
@@ -179,7 +183,7 @@
             // txtNote
             // 
             this.txtNote.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNote.Location = new System.Drawing.Point(86, 221);
+            this.txtNote.Location = new System.Drawing.Point(86, 189);
             this.txtNote.Name = "txtNote";
             this.txtNote.Size = new System.Drawing.Size(142, 21);
             this.txtNote.TabIndex = 19;
@@ -204,7 +208,7 @@
             // txtSpecification
             // 
             this.txtSpecification.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSpecification.Location = new System.Drawing.Point(87, 104);
+            this.txtSpecification.Location = new System.Drawing.Point(87, 89);
             this.txtSpecification.Name = "txtSpecification";
             this.txtSpecification.Size = new System.Drawing.Size(142, 21);
             this.txtSpecification.TabIndex = 19;
@@ -221,7 +225,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 225);
+            this.label3.Location = new System.Drawing.Point(39, 193);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 11;
@@ -239,7 +243,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 109);
+            this.label9.Location = new System.Drawing.Point(16, 93);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 12);
             this.label9.TabIndex = 11;
@@ -248,7 +252,7 @@
             // txtMaterialName
             // 
             this.txtMaterialName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMaterialName.Location = new System.Drawing.Point(87, 62);
+            this.txtMaterialName.Location = new System.Drawing.Point(87, 53);
             this.txtMaterialName.Name = "txtMaterialName";
             this.txtMaterialName.Size = new System.Drawing.Size(142, 21);
             this.txtMaterialName.TabIndex = 17;
@@ -256,7 +260,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 67);
+            this.label6.Location = new System.Drawing.Point(16, 58);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 12;
@@ -316,6 +320,23 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(39, 225);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 12);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "品牌：";
+            // 
+            // txtBrand
+            // 
+            this.txtBrand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBrand.Location = new System.Drawing.Point(87, 222);
+            this.txtBrand.Name = "txtBrand";
+            this.txtBrand.Size = new System.Drawing.Size(141, 21);
+            this.txtBrand.TabIndex = 23;
+            // 
             // ModifyMaterialInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -363,6 +384,8 @@
         private System.Windows.Forms.TextBox txtThresHold;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtSupplier;
+        private System.Windows.Forms.TextBox txtBrand;
+        private System.Windows.Forms.Label label13;
 
     }
 }

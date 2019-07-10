@@ -132,6 +132,7 @@ namespace MaterialManagement
                         dgvMaterialList.Rows[index].Cells["price"].Value = dr["price"].ToString();
                         dgvMaterialList.Rows[index].Cells["note"].Value = dr["note"].ToString();
                         dgvMaterialList.Rows[index].Cells["warn"].Value = dr["threshold"].ToString();
+                        dgvMaterialList.Rows[index].Cells["brand"].Value = dr["brand"].ToString();
 
 
 

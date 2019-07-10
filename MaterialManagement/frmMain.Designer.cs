@@ -45,13 +45,14 @@
             this.cmbQuery = new System.Windows.Forms.ComboBox();
             this.btnQuery = new System.Windows.Forms.Button();
             this.txtQuery = new System.Windows.Forms.TextBox();
-            this.btnOutMaterial = new System.Windows.Forms.Button();
-            this.btnInMaterial = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnMaterialList = new System.Windows.Forms.Button();
+            this.btnInMaterial = new System.Windows.Forms.Button();
+            this.btnOutMaterial = new System.Windows.Forms.Button();
             this.barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specification = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specificationmodle = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,7 +79,7 @@
             // 
             btnHistory.Image = ((System.Drawing.Image)(resources.GetObject("btnHistory.Image")));
             btnHistory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            btnHistory.Location = new System.Drawing.Point(994, 16);
+            btnHistory.Location = new System.Drawing.Point(904, 19);
             btnHistory.Name = "btnHistory";
             btnHistory.Size = new System.Drawing.Size(116, 53);
             btnHistory.TabIndex = 7;
@@ -129,6 +130,7 @@
             this.dgvMaterialList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.barcode,
             this.materialname,
+            this.Brand,
             this.supplier,
             this.specification,
             this.specificationmodle,
@@ -190,9 +192,6 @@
             this.panel2.Controls.Add(this.cmbQuery);
             this.panel2.Controls.Add(this.btnQuery);
             this.panel2.Controls.Add(this.txtQuery);
-            this.panel2.Controls.Add(btnHistory);
-            this.panel2.Controls.Add(this.btnOutMaterial);
-            this.panel2.Controls.Add(this.btnInMaterial);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -234,9 +233,9 @@
             // 
             this.btnQuery.Image = ((System.Drawing.Image)(resources.GetObject("btnQuery.Image")));
             this.btnQuery.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuery.Location = new System.Drawing.Point(514, 27);
+            this.btnQuery.Location = new System.Drawing.Point(497, 20);
             this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(79, 37);
+            this.btnQuery.Size = new System.Drawing.Size(97, 51);
             this.btnQuery.TabIndex = 11;
             this.btnQuery.Text = "查  询";
             this.btnQuery.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -250,35 +249,13 @@
             this.txtQuery.Size = new System.Drawing.Size(169, 21);
             this.txtQuery.TabIndex = 10;
             // 
-            // btnOutMaterial
-            // 
-            this.btnOutMaterial.Image = ((System.Drawing.Image)(resources.GetObject("btnOutMaterial.Image")));
-            this.btnOutMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOutMaterial.Location = new System.Drawing.Point(837, 16);
-            this.btnOutMaterial.Name = "btnOutMaterial";
-            this.btnOutMaterial.Size = new System.Drawing.Size(116, 53);
-            this.btnOutMaterial.TabIndex = 8;
-            this.btnOutMaterial.Text = "出库";
-            this.btnOutMaterial.UseVisualStyleBackColor = true;
-            this.btnOutMaterial.Click += new System.EventHandler(this.btnOutMaterial_Click);
-            // 
-            // btnInMaterial
-            // 
-            this.btnInMaterial.Font = new System.Drawing.Font("宋体", 9F);
-            this.btnInMaterial.Image = ((System.Drawing.Image)(resources.GetObject("btnInMaterial.Image")));
-            this.btnInMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInMaterial.Location = new System.Drawing.Point(667, 16);
-            this.btnInMaterial.Name = "btnInMaterial";
-            this.btnInMaterial.Size = new System.Drawing.Size(129, 53);
-            this.btnInMaterial.TabIndex = 9;
-            this.btnInMaterial.Text = "入库";
-            this.btnInMaterial.UseVisualStyleBackColor = true;
-            this.btnInMaterial.Click += new System.EventHandler(this.btnInMaterial_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnPrint);
             this.groupBox1.Controls.Add(this.btnMaterialList);
+            this.groupBox1.Controls.Add(this.btnInMaterial);
+            this.groupBox1.Controls.Add(this.btnOutMaterial);
+            this.groupBox1.Controls.Add(btnHistory);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -288,9 +265,9 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(1116, 16);
+            this.btnPrint.Location = new System.Drawing.Point(1039, 19);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(96, 53);
+            this.btnPrint.Size = new System.Drawing.Size(112, 53);
             this.btnPrint.TabIndex = 1;
             this.btnPrint.Text = "导出";
             this.btnPrint.UseVisualStyleBackColor = true;
@@ -307,18 +284,50 @@
             this.btnMaterialList.Visible = false;
             this.btnMaterialList.Click += new System.EventHandler(this.btnMaterialList_Click);
             // 
+            // btnInMaterial
+            // 
+            this.btnInMaterial.Font = new System.Drawing.Font("宋体", 9F);
+            this.btnInMaterial.Image = ((System.Drawing.Image)(resources.GetObject("btnInMaterial.Image")));
+            this.btnInMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInMaterial.Location = new System.Drawing.Point(613, 19);
+            this.btnInMaterial.Name = "btnInMaterial";
+            this.btnInMaterial.Size = new System.Drawing.Size(129, 53);
+            this.btnInMaterial.TabIndex = 9;
+            this.btnInMaterial.Text = "入库";
+            this.btnInMaterial.UseVisualStyleBackColor = true;
+            this.btnInMaterial.Click += new System.EventHandler(this.btnInMaterial_Click);
+            // 
+            // btnOutMaterial
+            // 
+            this.btnOutMaterial.Image = ((System.Drawing.Image)(resources.GetObject("btnOutMaterial.Image")));
+            this.btnOutMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOutMaterial.Location = new System.Drawing.Point(762, 19);
+            this.btnOutMaterial.Name = "btnOutMaterial";
+            this.btnOutMaterial.Size = new System.Drawing.Size(125, 53);
+            this.btnOutMaterial.TabIndex = 8;
+            this.btnOutMaterial.Text = "出库";
+            this.btnOutMaterial.UseVisualStyleBackColor = true;
+            this.btnOutMaterial.Click += new System.EventHandler(this.btnOutMaterial_Click);
+            // 
             // barcode
             // 
             this.barcode.HeaderText = "编码";
             this.barcode.Name = "barcode";
             this.barcode.ReadOnly = true;
-            this.barcode.Width = 60;
+            this.barcode.Width = 120;
             // 
             // materialname
             // 
             this.materialname.HeaderText = "名称";
             this.materialname.Name = "materialname";
             this.materialname.ReadOnly = true;
+            this.materialname.Width = 120;
+            // 
+            // Brand
+            // 
+            this.Brand.HeaderText = "品牌";
+            this.Brand.Name = "Brand";
+            this.Brand.ReadOnly = true;
             // 
             // supplier
             // 
@@ -331,6 +340,7 @@
             this.specification.HeaderText = "规格类型";
             this.specification.Name = "specification";
             this.specification.ReadOnly = true;
+            this.specification.Width = 150;
             // 
             // specificationmodle
             // 
@@ -373,21 +383,21 @@
             this.price.HeaderText = "价格";
             this.price.Name = "price";
             this.price.ReadOnly = true;
-            this.price.Width = 40;
+            this.price.Width = 80;
             // 
             // total
             // 
             this.total.HeaderText = "总价";
             this.total.Name = "total";
             this.total.ReadOnly = true;
-            this.total.Width = 40;
+            this.total.Width = 90;
             // 
             // note
             // 
             this.note.HeaderText = "备注";
             this.note.Name = "note";
             this.note.ReadOnly = true;
-            this.note.Width = 90;
+            this.note.Width = 120;
             // 
             // warn
             // 
@@ -442,6 +452,7 @@
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.DataGridViewTextBoxColumn barcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn materialname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplier;
         private System.Windows.Forms.DataGridViewTextBoxColumn specification;
         private System.Windows.Forms.DataGridViewTextBoxColumn specificationmodle;

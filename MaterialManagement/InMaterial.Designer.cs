@@ -70,6 +70,9 @@
             this.txtQuery = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvInList = new System.Windows.Forms.DataGridView();
+            this.dgvContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.specification = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,9 +87,6 @@
             this.note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -501,33 +501,52 @@
             this.dgvInList.TabIndex = 0;
             this.dgvInList.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvInList_CellMouseUp);
             // 
+            // dgvContextMenuStrip
+            // 
+            this.dgvContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearAllToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.dgvContextMenuStrip.Name = "contextMenuStrip1";
+            this.dgvContextMenuStrip.Size = new System.Drawing.Size(101, 48);
+            // 
+            // clearAllToolStripMenuItem
+            // 
+            this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
+            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.clearAllToolStripMenuItem.Text = "清空";
+            this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.deleteToolStripMenuItem.Text = "删除";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
             // barcode
             // 
             this.barcode.HeaderText = "编码";
             this.barcode.Name = "barcode";
             this.barcode.ReadOnly = true;
-            this.barcode.Width = 60;
+            this.barcode.Width = 120;
             // 
             // materialname
             // 
             this.materialname.HeaderText = "名称";
             this.materialname.Name = "materialname";
             this.materialname.ReadOnly = true;
-            this.materialname.Width = 80;
             // 
             // specification
             // 
             this.specification.HeaderText = "规格类型";
             this.specification.Name = "specification";
             this.specification.ReadOnly = true;
-            this.specification.Width = 90;
             // 
             // specificationModle
             // 
             this.specificationModle.HeaderText = "规格名称";
             this.specificationModle.Name = "specificationModle";
             this.specificationModle.ReadOnly = true;
-            this.specificationModle.Width = 90;
             // 
             // remainnum
             // 
@@ -573,21 +592,20 @@
             // 
             this.price.HeaderText = "价格";
             this.price.Name = "price";
-            this.price.Width = 60;
+            this.price.Width = 90;
             // 
             // total
             // 
             this.total.HeaderText = "总价";
             this.total.Name = "total";
             this.total.ReadOnly = true;
-            this.total.Width = 60;
+            this.total.Width = 90;
             // 
             // note
             // 
             this.note.HeaderText = "备注";
             this.note.Name = "note";
             this.note.ReadOnly = true;
-            this.note.Width = 60;
             // 
             // supplier
             // 
@@ -600,28 +618,6 @@
             this.brand.HeaderText = "品牌";
             this.brand.Name = "brand";
             this.brand.ReadOnly = true;
-            // 
-            // dgvContextMenuStrip
-            // 
-            this.dgvContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clearAllToolStripMenuItem,
-            this.deleteToolStripMenuItem});
-            this.dgvContextMenuStrip.Name = "contextMenuStrip1";
-            this.dgvContextMenuStrip.Size = new System.Drawing.Size(101, 48);
-            // 
-            // clearAllToolStripMenuItem
-            // 
-            this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
-            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.clearAllToolStripMenuItem.Text = "清空";
-            this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.deleteToolStripMenuItem.Text = "删除";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // InMaterial
             // 
@@ -683,6 +679,12 @@
         private System.Windows.Forms.TextBox txtSupplier;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtSpecificationModle1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtThresHodl;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn barcode;
         private System.Windows.Forms.DataGridViewTextBoxColumn materialname;
         private System.Windows.Forms.DataGridViewTextBoxColumn specification;
@@ -697,11 +699,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn note;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplier;
         private System.Windows.Forms.DataGridViewTextBoxColumn brand;
-        private System.Windows.Forms.TextBox txtSpecificationModle1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtThresHodl;
-        private System.Windows.Forms.Label label1;
     }
 }

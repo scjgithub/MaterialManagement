@@ -83,7 +83,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(884, 16);
+            this.button1.Location = new System.Drawing.Point(722, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 53);
             this.button1.TabIndex = 16;
@@ -133,7 +133,7 @@
             // 
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(760, 16);
+            this.btnClose.Location = new System.Drawing.Point(592, 16);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(87, 53);
             this.btnClose.TabIndex = 11;
@@ -225,20 +225,20 @@
             this.barcode.HeaderText = "编码";
             this.barcode.Name = "barcode";
             this.barcode.ReadOnly = true;
-            this.barcode.Width = 60;
+            this.barcode.Width = 120;
             // 
             // materialname
             // 
             this.materialname.HeaderText = "名称";
             this.materialname.Name = "materialname";
             this.materialname.ReadOnly = true;
-            this.materialname.Width = 60;
             // 
             // specification
             // 
             this.specification.HeaderText = "规格类型";
             this.specification.Name = "specification";
             this.specification.ReadOnly = true;
+            this.specification.Width = 120;
             // 
             // specificationmodle
             // 
@@ -258,7 +258,7 @@
             this.operatetime.DefaultCellStyle = dataGridViewCellStyle1;
             this.operatetime.HeaderText = "时间";
             this.operatetime.Name = "operatetime";
-            this.operatetime.Width = 120;
+            this.operatetime.Width = 150;
             // 
             // operater
             // 
@@ -281,31 +281,26 @@
             this.inoutnum.HeaderText = "数量";
             this.inoutnum.Name = "inoutnum";
             this.inoutnum.ReadOnly = true;
-            this.inoutnum.Width = 80;
             // 
             // price
             // 
             this.price.HeaderText = "单价";
             this.price.Name = "price";
-            this.price.Width = 60;
             // 
             // total
             // 
             this.total.HeaderText = "总价";
             this.total.Name = "total";
-            this.total.Width = 60;
             // 
             // brand
             // 
             this.brand.HeaderText = "品牌";
             this.brand.Name = "brand";
-            this.brand.Width = 60;
             // 
             // supplier
             // 
             this.supplier.HeaderText = "供应商";
             this.supplier.Name = "supplier";
-            this.supplier.Width = 70;
             // 
             // note
             // 

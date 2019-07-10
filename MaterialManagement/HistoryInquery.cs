@@ -132,6 +132,8 @@ namespace MaterialManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            //dgvOutList.Rows.RemoveAt(0);
             if (dgvOutList.Rows.Count == 0)
                 return;
             
@@ -143,15 +145,25 @@ namespace MaterialManagement
             //DataTable dt = new DataTable();   //需要转换的数据表
 
             //ExportToExcel(dt, "出入库历史记录");
-
+            System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+           
+            
+             
+            
             string fileName = typeTxt.local("历史记录");
+            
             if (fileName==null)
             {
                 return;
             }
+            stopwatch.Start();
             prints.ToExcel(dgvOutList, fileName);
+            
+            stopwatch.Stop();
+            TimeSpan ts2 = stopwatch.Elapsed;
+            Console.WriteLine("example2 time {0}", ts2.TotalMilliseconds);
 
-
+            #region
             //try
             //{
             //    System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog();
@@ -172,11 +184,12 @@ namespace MaterialManagement
             //    Console.WriteLine(ex.Message);
             //    return;
             //}
+            #endregion
 
-            
 
         }
 
+        
 
 
 

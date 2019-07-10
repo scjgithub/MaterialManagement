@@ -22,38 +22,47 @@ namespace MaterialManagement
                 //实例化一个Excel.Application对象  
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
 
-                //让后台执行设置为不可见，为true的话会看到打开一个Excel，然后数据在往里写  
-
-
                 //新增加一个工作簿，Workbook是直接保存，不会弹出保存对话框，加上Application会弹出保存对话框，值为false会报错  
                 Workbook wkbook = excel.Application.Workbooks.Add(true);
-                //生成Excel中列头名称  
+
+                //生成Excel中列头名称 
+                int mxodifyColumnIndex = -1;
                 for (int i = 0; i < dataGridView1.Columns.Count; i++)
                 {
                     if (dataGridView1.Columns[i].Visible == true)
                     {
+                        if (dataGridView1.Columns[i].HeaderText == "出入库类型")
+                        {
+                            mxodifyColumnIndex = i;
+                        }
                         excel.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
                     }
-
                 }
                 //把DataGridView当前页的数据保存在Excel中  
+                int modifyCount = 0;
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
+                    if (mxodifyColumnIndex != -1 && dataGridView1[mxodifyColumnIndex, i].Value.ToString() == "修改")
+                    {
+                        modifyCount++;
+                        continue;
+                    }
+
                     System.Windows.Forms.Application.DoEvents();
                     for (int j = 0; j < dataGridView1.Columns.Count; j++)
                     {
+
                         if (dataGridView1.Columns[j].Visible == true)
                         {
                             if (dataGridView1[j, i].ValueType == typeof(string))
                             {
-                                excel.Cells[i + 2, j + 1] = "'" + dataGridView1[j, i].Value.ToString();
+                                excel.Cells[i - modifyCount + 2, j + 1] = "'" + dataGridView1[j, i].Value.ToString();
                             }
                             else
                             {
-                                excel.Cells[i + 2, j + 1] = dataGridView1[j, i].Value.ToString();
+                                excel.Cells[i - modifyCount + 2, j + 1] = dataGridView1[j, i].Value.ToString();
                             }
                         }
-
                     }
                 }
 
@@ -62,26 +71,103 @@ namespace MaterialManagement
                 excel.AlertBeforeOverwriting = false;
 
                 //保存工作簿  
-                //excel.Application.Workbooks.Add(true).Save();
-                //保存excel文件  
-                //excel.SaveWorkspace("C:\\img\\11.xls");
                 wkbook.SaveAs(path);
-
-
 
                 //确保Excel进程关闭  
                 excel.Quit();
                 excel = null;
                 GC.Collect();//如果不使用这条语句会导致excel进程无法正常退出，使用后正常退出
                 MessageBox.Show("文件已经成功导出！");
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "错误提示");
             }
-
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //public static void ToExcel(DataGridView dataGridView1, string path)
+        //{
+        //    try
+        //    {
+        //        //没有数据的话就不往下执行  
+        //        if (dataGridView1.Rows.Count == 0)
+        //            return;
+        //        //实例化一个Excel.Application对象  
+        //        Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+
+        //        //让后台执行设置为不可见，为true的话会看到打开一个Excel，然后数据在往里写  
+
+
+        //        //新增加一个工作簿，Workbook是直接保存，不会弹出保存对话框，加上Application会弹出保存对话框，值为false会报错  
+        //        Workbook wkbook = excel.Application.Workbooks.Add(true);
+        //        //生成Excel中列头名称  
+        //        for (int i = 0; i < dataGridView1.Columns.Count; i++)
+        //        {
+        //            if (dataGridView1.Columns[i].Visible == true)
+        //            {
+        //                excel.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
+        //            }
+
+        //        }
+        //        //把DataGridView当前页的数据保存在Excel中  
+        //        for (int i = 0; i < dataGridView1.Rows.Count; i++)
+        //        {
+        //            System.Windows.Forms.Application.DoEvents();
+        //            for (int j = 0; j < dataGridView1.Columns.Count; j++)
+        //            {
+        //                if (dataGridView1.Columns[j].Visible == true)
+        //                {
+        //                    if (dataGridView1[j, i].ValueType == typeof(string))
+        //                    {
+        //                        excel.Cells[i + 2, j + 1] = "'" + dataGridView1[j, i].Value.ToString();
+        //                    }
+        //                    else
+        //                    {
+        //                        excel.Cells[i + 2, j + 1] = dataGridView1[j, i].Value.ToString();
+        //                    }
+        //                }
+
+        //            }
+        //        }
+
+        //        //设置禁止弹出保存和覆盖的询问提示框  
+        //        excel.DisplayAlerts = false;
+        //        excel.AlertBeforeOverwriting = false;
+
+        //        //保存工作簿  
+        //        //excel.Application.Workbooks.Add(true).Save();
+        //        //保存excel文件  
+        //        //excel.SaveWorkspace("C:\\img\\11.xls");
+        //        wkbook.SaveAs(path);
+
+
+
+        //        //确保Excel进程关闭  
+        //        excel.Quit();
+        //        excel = null;
+        //        GC.Collect();//如果不使用这条语句会导致excel进程无法正常退出，使用后正常退出
+        //        MessageBox.Show("文件已经成功导出！");
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message, "错误提示");
+        //    }
+
+        //}
 
 
 
