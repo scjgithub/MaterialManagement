@@ -351,23 +351,37 @@ namespace MaterialManagement
         {
             if (dgvMaterialList.Rows.Count == 0)
                 return;
-            try
+
+
+
+
+            string fileName = typeTxt.local("查询记录");
+            if (fileName == null)
             {
-                System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog();
-                dialog.Description = "请选择表格所在文件夹";
-                string selectPCPath = "";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    selectPCPath = dialog.SelectedPath;
-                }
-                selectPCPath += "\\查询记录.xls";
-                prints.ToExcel(dgvMaterialList, selectPCPath);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
                 return;
             }
+            prints.ToExcel(dgvMaterialList, fileName);
+            //try
+            //{
+            //    System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog();
+            //    dialog.Description = "请选择表格所在文件夹";
+            //    string selectPCPath = "";
+            //    if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            //    {
+            //        selectPCPath = dialog.SelectedPath;
+            //    }
+            //    else
+            //    {
+            //        return;
+            //    }
+            //    selectPCPath += "\\查询记录.xls";
+            //    prints.ToExcel(dgvMaterialList, selectPCPath);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //    return;
+            //}
 
 
 

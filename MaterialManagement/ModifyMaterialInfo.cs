@@ -33,7 +33,7 @@ namespace MaterialManagement
             dtRow.Cells["barcode"].Value        = txtBarCode.Text;
             dtRow.Cells["materialname"].Value   = txtMaterialName.Text;
             dtRow.Cells["specification"].Value  = txtSpecification.Text;
-            dtRow.Cells["specificationmodle"].Value = txtSpecificationＭodle.Text;
+            dtRow.Cells["specificationmodle"].Value = txtSpecificationModle.Text;
             dtRow.Cells["remainnum"].Value      = txtRemainNum.Text;
             dtRow.Cells["categoryone"].Value    = txtCategoryOne.Text;
             dtRow.Cells["categorytwo"].Value    = txtCategoryTwo.Text;
@@ -41,6 +41,7 @@ namespace MaterialManagement
             dtRow.Cells["note"].Value           = txtNote.Text;
             dtRow.Cells["price"].Value          = txtPrice.Text;
             dtRow.Cells["warn"].Value = txtThresHold.Text;
+            dtRow.Cells["supplier"].Value = txtSupplier.Text;
             //dtRow.Cells["threshold"].Value = txtThresHold.Text;
 
             try
@@ -52,6 +53,7 @@ namespace MaterialManagement
                 string queryString = "update material set barcode = '" + dtRow.Cells["barcode"].Value.ToString() +
                                     "',materialname = '" + dtRow.Cells["materialname"].Value.ToString() +
                                     "',specification = '" + dtRow.Cells["specification"].Value.ToString() +
+                                    "',supplier = '" + dtRow.Cells["supplier"].Value.ToString() +
                                     "',specificationmodle = '" + dtRow.Cells["specificationmodle"].Value.ToString() +
                                     "',remainnum = " + dtRow.Cells["remainnum"].Value.ToString() +
                                     ",categoryone = '" + dtRow.Cells["categoryone"].Value.ToString() +
@@ -65,8 +67,9 @@ namespace MaterialManagement
                 DataDBInfo.ExecuteSQLQuery(queryString);
 
                 //modify History
-                string historyString = "insert into history(barcode,materialname,inoutnum,supplier,total,price,note,specification,specificationmodle,inouttype,operatetime,operater) Values('"
+                string historyString = "insert into history(barcode,supplier,materialname,inoutnum,supplier,total,price,note,specification,specificationmodle,inouttype,operatetime,operater) Values('"
                         + dtRow.Cells["barcode"].Value.ToString() + "','"
+                        + dtRow.Cells["supplier"].Value.ToString() + "','"
                         + dtRow.Cells["materialname"].Value.ToString() + "','"
                         + dtRow.Cells["remainnum"].Value.ToString() + "','"
                         + dtRow.Cells["supplier"].Value.ToString() + "','"
@@ -94,7 +97,7 @@ namespace MaterialManagement
             txtBarCode.Text         = dtRow.Cells["barcode"].Value.ToString();
             txtMaterialName.Text    = dtRow.Cells["materialname"].Value.ToString();
             txtSpecification.Text   = dtRow.Cells["specification"].Value.ToString();
-            txtSpecificationＭodle.Text = dtRow.Cells["specificationmodle"].Value.ToString();
+            txtSpecificationModle.Text = dtRow.Cells["specificationmodle"].Value.ToString();
             txtRemainNum.Text       = dtRow.Cells["remainnum"].Value.ToString();
             txtCategoryOne.Text     = dtRow.Cells["categoryone"].Value.ToString();
             txtCategoryTwo.Text     = dtRow.Cells["categorytwo"].Value.ToString();
@@ -102,6 +105,7 @@ namespace MaterialManagement
             txtNote.Text            = dtRow.Cells["note"].Value.ToString();
             txtPrice.Text           = dtRow.Cells["price"].Value.ToString();
             txtThresHold.Text = dtRow.Cells["warn"].Value.ToString();
+            txtSupplier.Text = dtRow.Cells["supplier"].Value.ToString();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

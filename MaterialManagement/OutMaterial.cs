@@ -301,23 +301,37 @@ namespace MaterialManagement
         {
             if (dgvOutList.Rows.Count == 0)
                 return;
-            try
+
+
+
+
+            string fileName = typeTxt.local("历史记录");
+            if (fileName == null)
             {
-                System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog();
-                dialog.Description = "请选择表格所在文件夹";
-                string selectPCPath = "";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    selectPCPath = dialog.SelectedPath;
-                }
-                selectPCPath += "\\出库记录.xls";
-                prints.ToExcel(dgvOutList, selectPCPath);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
                 return;
             }
+            prints.ToExcel(dgvOutList, fileName);
+            //try
+            //{
+            //    System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog();
+            //    dialog.Description = "请选择表格所在文件夹";
+            //    string selectPCPath = "";
+            //    if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            //    {
+            //        selectPCPath = dialog.SelectedPath;
+            //    }
+            //    else
+            //    {
+            //        return;
+            //    }
+            //    selectPCPath += "\\出库记录.xls";
+            //    prints.ToExcel(dgvOutList, selectPCPath);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //    return;
+            //}
 
 
         }

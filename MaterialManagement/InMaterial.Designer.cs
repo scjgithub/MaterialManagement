@@ -229,10 +229,12 @@
             // 
             // txtThresHodl
             // 
+            this.txtThresHodl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtThresHodl.Location = new System.Drawing.Point(564, 172);
             this.txtThresHodl.Name = "txtThresHodl";
             this.txtThresHodl.Size = new System.Drawing.Size(142, 21);
             this.txtThresHodl.TabIndex = 2;
+            this.txtThresHodl.Text = "0";
             // 
             // label14
             // 
@@ -245,6 +247,7 @@
             // 
             // txtSpecificationModle1
             // 
+            this.txtSpecificationModle1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSpecificationModle1.Location = new System.Drawing.Point(87, 128);
             this.txtSpecificationModle1.Name = "txtSpecificationModle1";
             this.txtSpecificationModle1.Size = new System.Drawing.Size(142, 21);
@@ -261,6 +264,7 @@
             // 
             // txtBrand
             // 
+            this.txtBrand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBrand.Location = new System.Drawing.Point(564, 66);
             this.txtBrand.Name = "txtBrand";
             this.txtBrand.Size = new System.Drawing.Size(142, 21);
@@ -268,6 +272,7 @@
             // 
             // txtSupplier
             // 
+            this.txtSupplier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSupplier.Location = new System.Drawing.Point(564, 33);
             this.txtSupplier.Name = "txtSupplier";
             this.txtSupplier.Size = new System.Drawing.Size(142, 21);
@@ -447,6 +452,7 @@
             // 
             // txtQuery
             // 
+            this.txtQuery.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtQuery.Location = new System.Drawing.Point(776, 75);
             this.txtQuery.Name = "txtQuery";
             this.txtQuery.Size = new System.Drawing.Size(115, 21);

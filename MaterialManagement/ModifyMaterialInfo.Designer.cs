@@ -29,16 +29,20 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtSpecificationＭodle = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtSupplier = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSpecificationModle = new System.Windows.Forms.TextBox();
+            this.txtThresHold = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtCategoryTwo = new System.Windows.Forms.TextBox();
             this.txtRemainNum = new System.Windows.Forms.TextBox();
-            this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.txtCategoryThree = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtSpecification = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,25 +55,25 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.txtThresHold = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.txtSupplier);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.txtSpecificationＭodle);
+            this.groupBox1.Controls.Add(this.txtPrice);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtSpecificationModle);
             this.groupBox1.Controls.Add(this.txtThresHold);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtCategoryTwo);
             this.groupBox1.Controls.Add(this.txtRemainNum);
-            this.groupBox1.Controls.Add(this.txtPrice);
             this.groupBox1.Controls.Add(this.txtNote);
             this.groupBox1.Controls.Add(this.txtCategoryThree);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtSpecification);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
@@ -87,12 +91,64 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "物料信息";
             // 
-            // txtSpecificationＭodle
+            // label12
             // 
-            this.txtSpecificationＭodle.Location = new System.Drawing.Point(87, 143);
-            this.txtSpecificationＭodle.Name = "txtSpecificationＭodle";
-            this.txtSpecificationＭodle.Size = new System.Drawing.Size(142, 21);
-            this.txtSpecificationＭodle.TabIndex = 21;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(269, 185);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 12);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "供应商：";
+            // 
+            // txtSupplier
+            // 
+            this.txtSupplier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSupplier.Location = new System.Drawing.Point(327, 184);
+            this.txtSupplier.Name = "txtSupplier";
+            this.txtSupplier.Size = new System.Drawing.Size(142, 21);
+            this.txtSupplier.TabIndex = 20;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(269, 225);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 12);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "预警值：";
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrice.Location = new System.Drawing.Point(87, 183);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(142, 21);
+            this.txtPrice.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(39, 186);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "价格：";
+            // 
+            // txtSpecificationModle
+            // 
+            this.txtSpecificationModle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSpecificationModle.Location = new System.Drawing.Point(87, 143);
+            this.txtSpecificationModle.Name = "txtSpecificationModle";
+            this.txtSpecificationModle.Size = new System.Drawing.Size(142, 21);
+            this.txtSpecificationModle.TabIndex = 21;
+            // 
+            // txtThresHold
+            // 
+            this.txtThresHold.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtThresHold.Location = new System.Drawing.Point(327, 221);
+            this.txtThresHold.Name = "txtThresHold";
+            this.txtThresHold.Size = new System.Drawing.Size(141, 21);
+            this.txtThresHold.TabIndex = 19;
             // 
             // label10
             // 
@@ -120,18 +176,10 @@
             this.txtRemainNum.TabIndex = 19;
             this.txtRemainNum.Text = "0";
             // 
-            // txtPrice
-            // 
-            this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPrice.Location = new System.Drawing.Point(327, 183);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(142, 21);
-            this.txtPrice.TabIndex = 19;
-            // 
             // txtNote
             // 
             this.txtNote.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNote.Location = new System.Drawing.Point(86, 183);
+            this.txtNote.Location = new System.Drawing.Point(86, 221);
             this.txtNote.Name = "txtNote";
             this.txtNote.Size = new System.Drawing.Size(142, 21);
             this.txtNote.TabIndex = 19;
@@ -161,15 +209,6 @@
             this.txtSpecification.Size = new System.Drawing.Size(142, 21);
             this.txtSpecification.TabIndex = 19;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(280, 188);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "价格：";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -182,7 +221,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 185);
+            this.label3.Location = new System.Drawing.Point(39, 225);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 11;
@@ -277,22 +316,6 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // txtThresHold
-            // 
-            this.txtThresHold.Location = new System.Drawing.Point(87, 216);
-            this.txtThresHold.Name = "txtThresHold";
-            this.txtThresHold.Size = new System.Drawing.Size(141, 21);
-            this.txtThresHold.TabIndex = 19;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(27, 221);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 12);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "预警值：";
-            // 
             // ModifyMaterialInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -334,10 +357,12 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSpecificationＭodle;
+        private System.Windows.Forms.TextBox txtSpecificationModle;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtThresHold;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtSupplier;
 
     }
 }
