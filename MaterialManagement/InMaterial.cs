@@ -298,6 +298,8 @@ namespace MaterialManagement
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            if (dgvInList.Rows.Count == 0)
+                return;
             try
             {
                 System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog();

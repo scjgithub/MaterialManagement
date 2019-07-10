@@ -8,7 +8,9 @@ namespace LoginDataInfo
 {
     public enum Authority
     {
-        SuperAdmin = 1,
-        Guest      = 2,
+        SuperAdmin  = 4,
+        WareHouse   = 3,
+        Buyer             = 2,
+        Guest             = 1,
     }
 }

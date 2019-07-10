@@ -60,6 +60,10 @@ namespace LoginDataInfo
                     return Authority.Guest;
                 case "SUPERADMIN":
                     return Authority.SuperAdmin;
+                case "buyer":
+                    return Authority.Buyer;
+                case "WareHouse":
+                    return Authority.WareHouse;
                 default:
                     return Authority.Guest;
             }
