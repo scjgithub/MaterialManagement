@@ -82,7 +82,7 @@ namespace MaterialManagement
         string[] dbFields = { "materialname", "barcode", "categoryone", "categorytwo", "categorythree", "materialname", "specification", "supplier", "total", "remainnum", "price" };
         private void btnQuery_Click(object sender, EventArgs e)
         {
-            string txt = txtQuery.Text;            
+            string txt = txtQuery.Text;
             int itemIndex = cmbQuery.SelectedIndex;
             if (itemIndex < 0)
             {
@@ -133,7 +133,7 @@ namespace MaterialManagement
                         dgvMaterialList.Rows[index].Cells["note"].Value = dr["note"].ToString();
                         dgvMaterialList.Rows[index].Cells["warn"].Value = dr["threshold"].ToString();
 
-                        
+
 
                         int nThreshold = int.Parse(dr["threshold"].ToString());
                         int nRemain = int.Parse(dr["remainnum"].ToString());
@@ -358,29 +358,22 @@ namespace MaterialManagement
                 {
                     selectPCPath = dialog.SelectedPath;
                 }
-                selectPCPath += "\\库存查询记录.csv";
-                string sql = "";
-                foreach (DataGridViewRow row in dgvMaterialList.Rows)
-                {
-                    sql = "select * from material where barcode='" + row.Cells["barcode"].Value + "'";
-                    prints.Export(selectPCPath, sql);
-                }
-
+                selectPCPath += "\\查询记录.xls";
+                prints.ToExcel(dgvMaterialList, selectPCPath);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return;
             }
-            MessageBox.Show("成功导出");
+
+
+
+
+
+
+
+
         }
-
-     
-
-
-
-
-
-
     }
 }

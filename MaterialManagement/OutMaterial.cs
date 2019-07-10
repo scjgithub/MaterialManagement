@@ -18,8 +18,8 @@ namespace MaterialManagement
         {
             InitializeComponent();
         }
-        public static MaterialTreeView mTree = new MaterialTreeView();
-        MaterialTreeView treeFrm;
+        //public static MaterialTreeView mTree = new MaterialTreeView();
+        //MaterialTreeView treeFrm;
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -32,17 +32,17 @@ namespace MaterialManagement
         
 
         //定义查询数据库字段名称
-        string[] dbFields = { "materialname", "barcode", "categoryone", "categorytwo", "categorythree", "materialname", "specification", "supplier", "total", "remainnum", "price" };
+        //string[] dbFields = { "materialname", "barcode", "categoryone", "categorytwo", "categorythree", "materialname", "specification", "supplier", "total", "remainnum", "price" };
         private void btnQuery_Click(object sender, EventArgs e)
         {
             string txt = txtQuery.Text;
-            int itemIndex = cmbQuery.SelectedIndex;
-            if (itemIndex < 0)
-            {
-                return;
-            }
+            //int itemIndex = cmbQuery.SelectedIndex;
+            //if (itemIndex < 0)
+            //{
+            //    return;
+            //}
             //query string
-            string queryString = "select * from material where lower(" + dbFields[itemIndex] + ") like '%" + txt.ToLower() + "%'";
+            string queryString = "select * from material where barcode like '%" + txt + "%'";
             if (txt == string.Empty)
             {
                 queryString = "select * from material";
@@ -58,7 +58,7 @@ namespace MaterialManagement
             try
             {
                 DataTable dt = DataDBInfo.QueryDBInfo(queryString);
-
+                int dtt = dt.Rows.Count;
                 //Set txt(s) 对textBox赋值
                 if (dt.Rows.Count > 0)
                 {
@@ -109,8 +109,8 @@ namespace MaterialManagement
             }
             //检查编码的有效性
 
-            int indexx = dgvMaterialList.Rows.Add();
-            string barcode = (string)dgvMaterialList.Rows[indexx-1].Cells["barcode1"].Value;
+
+            string barcode = txtQuery.Text;
 
             //判断编码是否已经存在
             if (frmMain.CheckBarCodeExist(barcode, dgvOutList))
@@ -177,7 +177,10 @@ namespace MaterialManagement
                     
                 }
                 double sumnum = addNum * numprice;
-                string queryString = "update material set remainnum = remainnum  - " + addNum + ",total=total-" + sumnum + " where barcode = '" + row.Cells["barcode"].Value.ToString() + "'";
+                double total = Convert.ToDouble(row.Cells["total"].Value.ToString());
+                double totalnum = total - sumnum;
+                string strTotal = Convert.ToString(totalnum);
+                string queryString = "update material set remainnum = remainnum  - " + addNum + ",total=" + strTotal + " where barcode = '" + row.Cells["barcode"].Value.ToString() + "'";
                 int rowAffect = DataDBInfo.ExecuteSQLQuery(queryString);
 
                 if (rowAffect == 0)
@@ -213,7 +216,8 @@ namespace MaterialManagement
                 DataDBInfo.ExecuteSQLQuery(historyString);
             }
             MessageBox.Show("出库成功");
-            
+            //清空列表
+            dgvOutList.Rows.Clear();
         }
 
         private void dgvMaterialList_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -282,22 +286,17 @@ namespace MaterialManagement
             }
         }
 
-        
+
 
         private void OutMaterial_Load(object sender, EventArgs e)
         {
             //设置combox
-            this.cmbQuery.SelectedIndex = 0;
+            //this.cmbQuery.SelectedIndex = 0;
             //设置txtQuery
             this.txtQuery.AutoSize = false;
         }
 
-        private void btnclear_Click(object sender, EventArgs e)
-        {
-            //清空列表
-            dgvOutList.Rows.Clear();
-        }
-
+        
         private void btnPrint_Click(object sender, EventArgs e)
         {
             try
@@ -309,16 +308,14 @@ namespace MaterialManagement
                 {
                     selectPCPath = dialog.SelectedPath;
                 }
-                string sql = "select  * from material where barcode='" + dgvOutList.Rows[0].Cells["barcode"].Value + "'";
-                selectPCPath += "\\出库记录.csv";
-                prints.Export(selectPCPath, sql);
+                selectPCPath += "\\出库记录.xls";
+                prints.ToExcel(dgvOutList, selectPCPath);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return;
             }
-            MessageBox.Show("成功导出");
 
 
         }

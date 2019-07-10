@@ -18,21 +18,21 @@ namespace MaterialManagement
             InitializeComponent();
         }
         double beforTotal = 0;
-        string[] dbFields = { "materialname", "barcode", "materialname", "specification", "supplier", "total", "remainnum", "price" };
+        //string[] dbFields = { "materialname", "barcode", "materialname", "specification", "supplier", "total", "remainnum", "price" };
         private void btnQuery_Click(object sender, EventArgs e)
         {
             string txt = txtQuery.Text;
-            int itemIndex = cmbQuery.SelectedIndex;
-            if (itemIndex < 0)
-            {
-                return;
-            }
+            //int itemIndex = cmbQuery.SelectedIndex;
+            //if (itemIndex < 0)
+            //{
+            //    return;
+            //}
 
             //query string
-            string queryString = "select * from material where lower(" + dbFields[itemIndex] + ") like '%" + txt.ToLower() + "%'";
+            string queryString = "select * from material where barcode like '%" + txt+ "%'";
             if (txt == string.Empty)
             {
-                queryString = "select * from material";
+                return;
             }
             try
             {
@@ -41,19 +41,19 @@ namespace MaterialManagement
                 //Set txt(s) 对textBox赋值
                 if (dt.Rows.Count > 0)
                 {
-                    DataRow dr = dt.Rows[0];
-                    txtBarCode.Text = dr[0].ToString();
-                    txtCategoryOne.Text = dr[1].ToString();
-                    txtCategoryTwo.Text = dr[2].ToString();
-                    txtCategoryThree.Text = dr[3].ToString();
-                    txtMaterialName.Text = dr[4].ToString();
-                    txtSpecification.Text = dr[5].ToString();
-                    txtAddNum.Text = dr[6].ToString();  
-                    txtNote.Text = dr[8].ToString();
-                    txtPrice.Text = dr[9].ToString();
-                    txtSupplier.Text = dr[11].ToString();
-                    txtSpecificationModle1.Text = dr[10].ToString();
-                    txtBrand.Text = dr[12].ToString();
+                   DataRow dr = dt.Rows[0];
+                    txtBarCode.Text = dr["barcode"].ToString();
+                    txtCategoryOne.Text = dr["categoryone"].ToString();
+                    txtCategoryTwo.Text = dr["categorytwo"].ToString();
+                    txtCategoryThree.Text = dr["categorythree"].ToString();
+                    txtMaterialName.Text = dr["materialname"].ToString();
+                    txtSpecification.Text = dr["specification"].ToString();
+                    txtAddNum.Text = dr["remainnum"].ToString();
+                    txtNote.Text = dr["note"].ToString();
+                    txtPrice.Text = dr["price"].ToString();
+                    txtSupplier.Text = dr["supplier"].ToString();
+                    txtSpecificationModle1.Text = dr["specificationmodle"].ToString();
+                    txtBrand.Text = dr["brand"].ToString();
                     string num = txtAddNum.Text;
                     string price = txtPrice.Text;
                     int num1 = Convert.ToInt32(num);
@@ -291,7 +291,7 @@ namespace MaterialManagement
         private void InMaterial_Load(object sender, EventArgs e)
         {
             //设置combox
-            this.cmbQuery.SelectedIndex = 0;
+            //this.cmbQuery.SelectedIndex = 0;
             //设置txtQuery
             this.txtQuery.AutoSize = false;
         }
@@ -307,9 +307,8 @@ namespace MaterialManagement
                 {
                     selectPCPath = dialog.SelectedPath;
                 }
-                string sql = "select * from material where barcode='" + txtBarCode.Text + "'";
-                selectPCPath += "\\入库记录.csv";
-                prints.Export(selectPCPath, sql);
+                selectPCPath += "\\入库记录.xls";
+                prints.ToExcel(dgvInList, selectPCPath);
             }
             catch (Exception ex)
             {
@@ -319,8 +318,12 @@ namespace MaterialManagement
             
             
             
-            MessageBox.Show("成功导出");
+            
         }
+
+        
+
+       
 
        
 

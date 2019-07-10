@@ -33,15 +33,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnPrint = new System.Windows.Forms.Button();
-            this.cmbQuery = new System.Windows.Forms.ComboBox();
             this.btnMaterialList = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddInMaterial = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnQuery = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtThresHodl = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.txtSpecificationModle1 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtBrand = new System.Windows.Forms.TextBox();
@@ -86,8 +87,6 @@
             this.dgvContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtThresHodl = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -97,54 +96,43 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.txtThresHodl);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnPrint);
-            this.panel1.Controls.Add(this.cmbQuery);
             this.panel1.Controls.Add(this.btnMaterialList);
             this.panel1.Controls.Add(this.btnClose);
             this.panel1.Controls.Add(this.btnAddInMaterial);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.btnQuery);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.txtQuery);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1153, 183);
+            this.panel1.Size = new System.Drawing.Size(1153, 221);
             this.panel1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(786, 41);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 12);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "库存编码查询";
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(956, 132);
+            this.btnPrint.Location = new System.Drawing.Point(943, 154);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(75, 39);
+            this.btnPrint.Size = new System.Drawing.Size(88, 39);
             this.btnPrint.TabIndex = 21;
             this.btnPrint.Text = "导出";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // cmbQuery
-            // 
-            this.cmbQuery.FormattingEnabled = true;
-            this.cmbQuery.Items.AddRange(new object[] {
-            "快速查询",
-            "编码",
-            "物料名称",
-            "物料规格",
-            "供应商",
-            "总价",
-            "数量",
-            "单价"});
-            this.cmbQuery.Location = new System.Drawing.Point(817, 29);
-            this.cmbQuery.Name = "cmbQuery";
-            this.cmbQuery.Size = new System.Drawing.Size(105, 20);
-            this.cmbQuery.TabIndex = 20;
-            // 
             // btnMaterialList
             // 
-            this.btnMaterialList.Location = new System.Drawing.Point(1037, 30);
+            this.btnMaterialList.Location = new System.Drawing.Point(1052, 25);
             this.btnMaterialList.Name = "btnMaterialList";
             this.btnMaterialList.Size = new System.Drawing.Size(75, 59);
             this.btnMaterialList.TabIndex = 0;
@@ -156,7 +144,7 @@
             // 
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(1040, 132);
+            this.btnClose.Location = new System.Drawing.Point(1038, 154);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(89, 39);
             this.btnClose.TabIndex = 19;
@@ -169,7 +157,7 @@
             // 
             this.btnAddInMaterial.Image = ((System.Drawing.Image)(resources.GetObject("btnAddInMaterial.Image")));
             this.btnAddInMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddInMaterial.Location = new System.Drawing.Point(857, 132);
+            this.btnAddInMaterial.Location = new System.Drawing.Point(849, 154);
             this.btnAddInMaterial.Name = "btnAddInMaterial";
             this.btnAddInMaterial.Size = new System.Drawing.Size(88, 39);
             this.btnAddInMaterial.TabIndex = 18;
@@ -182,7 +170,7 @@
             // 
             this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(756, 132);
+            this.btnAdd.Location = new System.Drawing.Point(755, 154);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(88, 39);
             this.btnAdd.TabIndex = 18;
@@ -195,27 +183,19 @@
             // 
             this.btnQuery.Image = ((System.Drawing.Image)(resources.GetObject("btnQuery.Image")));
             this.btnQuery.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuery.Location = new System.Drawing.Point(929, 72);
+            this.btnQuery.Location = new System.Drawing.Point(923, 66);
             this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(79, 37);
+            this.btnQuery.Size = new System.Drawing.Size(88, 37);
             this.btnQuery.TabIndex = 15;
             this.btnQuery.Text = "查  询";
             this.btnQuery.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnQuery.UseVisualStyleBackColor = true;
             this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
             // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(750, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 29);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "库存查询";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtThresHodl);
+            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.txtSpecificationModle1);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtBrand);
@@ -242,10 +222,26 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(719, 188);
+            this.groupBox1.Size = new System.Drawing.Size(727, 209);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "物品信息";
+            // 
+            // txtThresHodl
+            // 
+            this.txtThresHodl.Location = new System.Drawing.Point(564, 172);
+            this.txtThresHodl.Name = "txtThresHodl";
+            this.txtThresHodl.Size = new System.Drawing.Size(142, 21);
+            this.txtThresHodl.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(505, 175);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 12);
+            this.label14.TabIndex = 1;
+            this.label14.Text = "预警值：";
             // 
             // txtSpecificationModle1
             // 
@@ -451,9 +447,9 @@
             // 
             // txtQuery
             // 
-            this.txtQuery.Location = new System.Drawing.Point(754, 63);
+            this.txtQuery.Location = new System.Drawing.Point(776, 75);
             this.txtQuery.Name = "txtQuery";
-            this.txtQuery.Size = new System.Drawing.Size(169, 21);
+            this.txtQuery.Size = new System.Drawing.Size(115, 21);
             this.txtQuery.TabIndex = 14;
             this.txtQuery.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtQuery_KeyDown);
             // 
@@ -461,9 +457,9 @@
             // 
             this.panel2.Controls.Add(this.dgvInList);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 183);
+            this.panel2.Location = new System.Drawing.Point(0, 221);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1153, 397);
+            this.panel2.Size = new System.Drawing.Size(1153, 359);
             this.panel2.TabIndex = 1;
             // 
             // dgvInList
@@ -495,7 +491,7 @@
             this.dgvInList.Name = "dgvInList";
             this.dgvInList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dgvInList.RowTemplate.Height = 30;
-            this.dgvInList.Size = new System.Drawing.Size(1153, 397);
+            this.dgvInList.Size = new System.Drawing.Size(1153, 359);
             this.dgvInList.TabIndex = 0;
             this.dgvInList.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvInList_CellMouseUp);
             // 
@@ -621,22 +617,6 @@
             this.deleteToolStripMenuItem.Text = "删除";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(765, 106);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 12);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "预警值";
-            // 
-            // txtThresHodl
-            // 
-            this.txtThresHodl.Location = new System.Drawing.Point(822, 102);
-            this.txtThresHodl.Name = "txtThresHodl";
-            this.txtThresHodl.Size = new System.Drawing.Size(100, 21);
-            this.txtThresHodl.TabIndex = 2;
-            // 
             // InMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -663,7 +643,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnQuery;
         private System.Windows.Forms.TextBox txtQuery;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -712,11 +691,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn note;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplier;
         private System.Windows.Forms.DataGridViewTextBoxColumn brand;
-        private System.Windows.Forms.ComboBox cmbQuery;
         private System.Windows.Forms.TextBox txtSpecificationModle1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtThresHodl;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OutMaterial));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvMaterialList = new System.Windows.Forms.DataGridView();
@@ -48,7 +48,6 @@
             this.total1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.note1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.cmbQuery = new System.Windows.Forms.ComboBox();
             this.btnMaterialList = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -80,9 +79,8 @@
             this.clearAlltoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnclear = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterialList)).BeginInit();
@@ -171,9 +169,9 @@
             // 
             // remainnum1
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Blue;
-            this.remainnum1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Blue;
+            this.remainnum1.DefaultCellStyle = dataGridViewCellStyle7;
             this.remainnum1.HeaderText = "库存数量";
             this.remainnum1.Name = "remainnum1";
             this.remainnum1.ReadOnly = true;
@@ -219,7 +217,6 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.cmbQuery);
             this.panel4.Controls.Add(this.btnMaterialList);
             this.panel4.Controls.Add(this.btnClose);
             this.panel4.Controls.Add(this.btnAdd);
@@ -235,26 +232,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1145, 73);
             this.panel4.TabIndex = 41;
-            // 
-            // cmbQuery
-            // 
-            this.cmbQuery.FormattingEnabled = true;
-            this.cmbQuery.Items.AddRange(new object[] {
-            "快速查询",
-            "编码",
-            "类别一",
-            "类别二",
-            "类别三",
-            "物料名称",
-            "物料规格",
-            "供应商",
-            "总价",
-            "数量",
-            "单价"});
-            this.cmbQuery.Location = new System.Drawing.Point(150, 12);
-            this.cmbQuery.Name = "cmbQuery";
-            this.cmbQuery.Size = new System.Drawing.Size(157, 20);
-            this.cmbQuery.TabIndex = 56;
             // 
             // btnMaterialList
             // 
@@ -338,7 +315,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(93, 8);
+            this.label1.Location = new System.Drawing.Point(93, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 29);
             this.label1.TabIndex = 50;
@@ -354,7 +331,7 @@
             // 
             // txtQuery
             // 
-            this.txtQuery.Location = new System.Drawing.Point(150, 39);
+            this.txtQuery.Location = new System.Drawing.Point(161, 31);
             this.txtQuery.Name = "txtQuery";
             this.txtQuery.Size = new System.Drawing.Size(157, 21);
             this.txtQuery.TabIndex = 48;
@@ -452,9 +429,9 @@
             // 
             // remainnum
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Blue;
-            this.remainnum.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Blue;
+            this.remainnum.DefaultCellStyle = dataGridViewCellStyle8;
             this.remainnum.HeaderText = "库存数量";
             this.remainnum.Name = "remainnum";
             this.remainnum.ReadOnly = true;
@@ -462,10 +439,10 @@
             // 
             // InNum
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
-            this.InNum.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Red;
+            this.InNum.DefaultCellStyle = dataGridViewCellStyle9;
             this.InNum.HeaderText = "出库数量";
             this.InNum.Name = "InNum";
             this.InNum.ReadOnly = true;
@@ -541,7 +518,6 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.btnPrint);
-            this.panel5.Controls.Add(this.btnclear);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.btnOutMaterial);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
@@ -549,6 +525,16 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1145, 50);
             this.panel5.TabIndex = 2;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(796, 6);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(83, 36);
+            this.btnPrint.TabIndex = 55;
+            this.btnPrint.Text = "导出";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // label2
             // 
@@ -561,26 +547,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "物料出库信息：";
             // 
-            // btnclear
-            // 
-            this.btnclear.Location = new System.Drawing.Point(781, 6);
-            this.btnclear.Name = "btnclear";
-            this.btnclear.Size = new System.Drawing.Size(93, 36);
-            this.btnclear.TabIndex = 54;
-            this.btnclear.Text = "清空列表";
-            this.btnclear.UseVisualStyleBackColor = true;
-            this.btnclear.Click += new System.EventHandler(this.btnclear_Click);
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Location = new System.Drawing.Point(910, 6);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(83, 36);
-            this.btnPrint.TabIndex = 55;
-            this.btnPrint.Text = "导出";
-            this.btnPrint.UseVisualStyleBackColor = true;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
             // OutMaterial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -591,7 +557,6 @@
             this.Name = "OutMaterial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OutMaterial";
-            this.Load += new System.EventHandler(this.OutMaterial_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterialList)).EndInit();
@@ -656,8 +621,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.DataGridViewTextBoxColumn note;
-        private System.Windows.Forms.ComboBox cmbQuery;
-        private System.Windows.Forms.Button btnclear;
         private System.Windows.Forms.Button btnPrint;
     }
 }
