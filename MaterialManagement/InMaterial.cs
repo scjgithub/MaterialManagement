@@ -98,12 +98,12 @@ namespace MaterialManagement
                 MessageBox.Show("数量或单价不能为空");
                 return;
             }
-            int num1=0;
+            double num1 = 0;
             double price1=0.0;
             if (Regex.IsMatch(num, @"^[+-]?\d*[.]?\d*$") && Regex.IsMatch(price, @"^[+-]?\d*[.]?\d*$"))
             {
-                num1 = Convert.ToInt32(num);
-                price1 = Convert.ToInt32(price);
+                num1 = Convert.ToDouble(num);
+                price1 = Convert.ToDouble(price);
             }
             else {
                 MessageBox.Show("单价或数量为非数字！！");
@@ -205,7 +205,7 @@ namespace MaterialManagement
                 
                 int addNums1 =Convert.ToInt32( row.Cells["InNum"].Value.ToString());
                 int remainnum =Convert.ToInt32( row.Cells["remainnum"].Value.ToString());                
-                double numPrice1 = Convert.ToInt32(row.Cells["price"].Value.ToString());
+                double numPrice1 = Convert.ToDouble(row.Cells["price"].Value.ToString());
                 double numTotal1 = beforTotal + (addNums1 * numPrice1);
                 numPrice1 = numTotal1 / (remainnum + addNums1);
                 string numPrice =Convert.ToString(numPrice1) ;

@@ -58,7 +58,7 @@ namespace MaterialManagement
             try
             {
                 //SetDB modify
-                int num = Convert.ToInt32(dtRow.Cells["remainnum"].Value);
+                double num = Convert.ToDouble(dtRow.Cells["remainnum"].Value);
                 double numPrice = Convert.ToInt32(dtRow.Cells["price"].Value);
                 double numTotal = num * numPrice;
                 string queryString = "update material set barcode = '" + dtRow.Cells["barcode"].Value.ToString() +

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 //using System.Threading.Tasks;
 using System.Windows.Forms;
 using LoginDataInfo;
@@ -134,8 +135,14 @@ namespace MaterialManagement
             }
 
             //判读库存数量和出库数量
-            int nRemain = int.Parse(dt.Rows[0]["remainnum"].ToString());
-            int outNum = int.Parse(txtAddCount.Text);
+            double nRemain = double.Parse(dt.Rows[0]["remainnum"].ToString());
+            if (!Regex.IsMatch(txtAddCount.Text, @"^[+-]?\d*[.]?\d*$"))
+            {
+                MessageBox.Show("出库数量填写有误");
+                return;
+            }
+            double outNum = double.Parse(txtAddCount.Text);
+            
             if (outNum > nRemain)
             {
                 MessageBox.Show(barcode+" 库存数量不足！");
