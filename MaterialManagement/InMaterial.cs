@@ -18,7 +18,7 @@ namespace MaterialManagement
         {
             InitializeComponent();
         }
-        double beforTotal = 0;
+        //double beforTotal = 0;
         //string[] dbFields = { "materialname", "barcode", "materialname", "specification", "supplier", "total", "remainnum", "price" };
         private void btnQuery_Click(object sender, EventArgs e)
         {
@@ -30,7 +30,7 @@ namespace MaterialManagement
             //}
 
             //query string
-            string queryString = "select * from material where barcode like '%" + txt+ "%'";
+            string queryString = "select * from material where barcode = '" + txt+ "'";
             if (txt == string.Empty)
             {
                 return;
@@ -55,11 +55,11 @@ namespace MaterialManagement
                     txtSupplier.Text = dr["supplier"].ToString();
                     txtSpecificationModle1.Text = dr["specificationmodle"].ToString();
                     txtBrand.Text = dr["brand"].ToString();
-                    string num = txtAddNum.Text;
-                    string price = txtPrice.Text;
-                    int num1 = Convert.ToInt32(num);
-                    int price1 = Convert.ToInt32(price);
-                    beforTotal = num1 * price1;
+                    //string num = txtAddNum.Text;
+                    //string price = txtPrice.Text;
+                    //int num1 = Convert.ToInt32(num);
+                    //int price1 = Convert.ToInt32(price);
+                   // beforTotal =Convert.ToInt32(dr["total"].ToString()) ;
                     if (txtPrice.Text == "")
                     {
                         txtPrice.Text = "0";
@@ -109,9 +109,15 @@ namespace MaterialManagement
                 MessageBox.Show("单价或数量为非数字！！");
                 return;
             }
-           
-            double total = num1 * price1;
-            
+            double total = 0.0;
+            if (num1 == 0 || price1 == 0)
+            {
+                total = 0.0;
+            }
+            else
+            {
+                total = num1 * price1;
+            }
             //检查编码的有效性
             string barcode = txtBarCode.Text;
             //if (barcode.Length <= 5)
@@ -174,8 +180,29 @@ namespace MaterialManagement
                 return;
             //遍历循环要添加的列
             foreach (DataGridViewRow row in dgvInList.Rows)
-            {
+            {   //获取第一行编码
+                string txt = row.Cells["barcode"].Value.ToString();
+                //query string
+                string queryString1 = "select * from material where barcode = '" + txt + "'";
+                
+           
+                DataTable dt = DataDBInfo.QueryDBInfo(queryString1);
+                //之前的总价
+                double beforTotal = 0.0;
+                //
+                if(dt.Rows.Count>0){
+                DataRow dr = dt.Rows[0];
+                if (Convert.ToInt32(dr["total"].ToString()) == 0)
+                {
+                    beforTotal = 0;
+                }
+                else
+                {
+                    beforTotal = Convert.ToInt32(dr["total"].ToString());
+                }
+                }
                 int addNum = 0;
+                
                 int addNums1 =Convert.ToInt32( row.Cells["InNum"].Value.ToString());
                 int remainnum =Convert.ToInt32( row.Cells["remainnum"].Value.ToString());                
                 double numPrice1 = Convert.ToInt32(row.Cells["price"].Value.ToString());
@@ -214,8 +241,9 @@ namespace MaterialManagement
                     DataDBInfo.ExecuteSQLQuery(queryString);
                 }
 
-                string historyString = "insert into history(barcode,materialname,supplier,total,brand,price,note,specification,inouttype,Inoutnum,operatetime,operater) Values('"
+                string historyString = "insert into history(barcode,specificationmodle,materialname,supplier,total,brand,price,note,specification,inouttype,Inoutnum,operatetime,operater) Values('"
                         + row.Cells["barcode"].Value.ToString() + "','"
+                        + row.Cells["specificationmodle"].Value.ToString() + "','"
                         + row.Cells["materialname"].Value.ToString() + "','"
                         + row.Cells["supplier"].Value.ToString() + "','"
                         + row.Cells["total"].Value.ToString() + "','"

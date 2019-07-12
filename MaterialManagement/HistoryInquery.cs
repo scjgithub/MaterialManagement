@@ -145,7 +145,7 @@ namespace MaterialManagement
             //DataTable dt = new DataTable();   //需要转换的数据表
 
             //ExportToExcel(dt, "出入库历史记录");
-            System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+            //System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
            
             
              
@@ -156,12 +156,12 @@ namespace MaterialManagement
             {
                 return;
             }
-            stopwatch.Start();
+            //stopwatch.Start();
             prints.ToExcel(dgvOutList, fileName);
             
-            stopwatch.Stop();
-            TimeSpan ts2 = stopwatch.Elapsed;
-            Console.WriteLine("example2 time {0}", ts2.TotalMilliseconds);
+            //stopwatch.Stop();
+            //TimeSpan ts2 = stopwatch.Elapsed;
+            //Console.WriteLine("example2 time {0}", ts2.TotalMilliseconds);
 
             #region
             //try

@@ -11,3 +11,4 @@ C:\Users\宋超杰\Desktop\MaterialManagement\PostgreDBUtility\bin\Release\Npgsq
 C:\Users\宋超杰\Desktop\MaterialManagement\PostgreDBUtility\bin\Release\Mono.Security.dll
 C:\Users\宋超杰\Desktop\MaterialManagement\PostgreDBUtility\obj\Release\PostgreDBUtility.dll
 C:\Users\宋超杰\Desktop\MaterialManagement\PostgreDBUtility\obj\Release\PostgreDBUtility.pdb
+C:\Users\宋超杰\Desktop\MaterialManagement\PostgreDBUtility\obj\Release\PostgreDBUtility.csprojResolveAssemblyReference.cache
